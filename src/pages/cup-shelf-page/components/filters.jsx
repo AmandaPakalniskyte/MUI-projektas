@@ -15,32 +15,39 @@ import TuneIcon from '@mui/icons-material/Tune';
 import CheckboxGroup from '../../../components/checkbox-group';
 
 const categories = [
-  { id: '1', label: 'Cup' },
-  { id: '2', label: 'Bowl' },
-  { id: '3', label: 'Vase' },
-  { id: '4', label: 'Coffee' },
-  { id: '5', label: 'Soup' },
+  { id: '1', label: 'Abstraktus' },
+  { id: '2', label: 'Gamta' },
+  { id: '3', label: 'Portretas' },
+  { id: '4', label: 'Klasikinis' },
+  { id: '5', label: 'Modernus' },
 ];
 
 const materialTypes = [
-  { id: '1', label: 'Medinis' },
-  { id: '2', label: 'Molinis' },
-  { id: '3', label: 'Metalinis' },
+  { id: '1', label: 'Drobė' },
+  { id: '2', label: 'Linas' },
+  { id: '3', label: 'Popierius' },
 ];
 
 const colors = [
-  { id: '1', label: 'red' },
-  { id: '2', label: 'green' },
-  { id: '3', label: 'blue' },
+  { id: '1', label: 'Spalvotas' },
+  { id: '2', label: 'Juoda ir balta' },
+];
+
+const dimensions = [
+  { id: '1', label: '60 x 80' },
+  { id: '2', label: '80 x 100' },
+  { id: '3', label: '100 x 100' },
+  { id: '4', label: '120 x 160' },
 ];
 
 const Filters = ({ drawerWidth }) => {
-  const isExtraLarge = useMediaQuery((theme) => theme.breakpoints.up('xxl'));
+  const isExtraLarge = useMediaQuery((theme) => theme.breakpoints.up('xl'));
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [priceRange, setPriceRange] = React.useState([2, 25]);
+  const [priceRange, setPriceRange] = React.useState([0, 1500]);
   const [category, setCategory] = React.useState(null);
   const [selectedMaterialTypes, setSelectedMaterialTypes] = React.useState([]);
   const [selectedColors, setSelectedColors] = React.useState([]);
+  const [selectedDimensions, setSelectedDimensions] = React.useState([]);
 
   return (
     <>
@@ -73,12 +80,12 @@ const Filters = ({ drawerWidth }) => {
           <Typography variant="h4">Filtrai</Typography>
           <Divider sx={{ my: 2 }} />
           <FormControl sx={{ width: '100%' }}>
-            <Typography variant="h6" sx={{}}>Kaina</Typography>
+            <Typography variant="h6" sx={{}}>Kaina (EUR)</Typography>
             <Box sx={{ mx: 2 }}>
               <Slider
                 value={priceRange}
                 min={0}
-                max={25}
+                max={1500}
                 // onChangeCommitted={(_, newPriceRange) => setPriceRange(newPriceRange)}
                 onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
                 valueLabelDisplay="on"
@@ -113,17 +120,24 @@ const Filters = ({ drawerWidth }) => {
           />
           <Divider sx={{ my: 2 }} />
           <CheckboxGroup
-            label="Medžiaga"
+            label="Pagrindas"
             options={materialTypes}
             value={selectedMaterialTypes}
             onChange={(_, newMaterialTypes) => setSelectedMaterialTypes(newMaterialTypes)}
           />
           <Divider sx={{ my: 2 }} />
           <CheckboxGroup
-            label="Spalva"
+            label="Spalvų gama"
             options={colors}
             value={selectedColors}
             onChange={(_, newColors) => setSelectedColors(newColors)}
+          />
+          <Divider sx={{ my: 2 }} />
+          <CheckboxGroup
+            label="Dimensijos (cm)"
+            options={dimensions}
+            value={selectedDimensions}
+            onChange={(_, newDimensions) => setSelectedDimensions(newDimensions)}
           />
         </Box>
       </Drawer>

@@ -12,8 +12,8 @@ import * as Nav from './components';
 
 const pages = [
   { text: 'Pagrindinis', to: '/' },
-  { text: 'Žiedimas', to: '/pottery' },
-  { text: 'Puodelių lentyna', to: '/cup-shelf' },
+  { text: 'Mūsų istorija', to: '/history' },
+  { text: 'Paveikslų galerija', to: '/gallery' },
 ];
 
 const Navbar = () => {

@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom';
 import { Navbar } from './components';
 import HomePage from './pages/home-page';
-import CupShelfPage from './pages/cup-shelf-page';
-import PotteryPage from './pages/pottery-page';
+import GalleryPage from './pages/cup-shelf-page';
+import HistoryPage from './pages/history-page';
 import CartPage from './pages/cart-page';
 import OrderPage from './pages/order-page';
 import ErrorPage from './pages/error-page';
@@ -18,8 +18,8 @@ const App = () => (
 
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/cup-shelf" element={<CupShelfPage />} />
-      <Route path="/pottery" element={<PotteryPage />} />
+      <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/history" element={<HistoryPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/order" element={<OrderPage />} />
 
