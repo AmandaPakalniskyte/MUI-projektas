@@ -9,7 +9,7 @@ import * as Home from './components';
 const Item = styled(Box)(({ theme }) => ({
 
   ':hover': {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     cursor: 'pointer',
   },
@@ -21,9 +21,9 @@ const HomePage = () => {
 
   return (
     <Box sx={{ height: '100vh', position: 'relative' }}>
-      <Home.Background component="img" src="/main.jpg" />
+      <Home.Background component="img" src="/main4.jpg" />
       <Home.ContentContainer>
-        <Home.Content component="main" sx={(theme) => ({ letterSpacing: '0.08em', color: theme.palette.primary.main })}>
+        <Home.Content component="main" sx={(theme) => ({ color: theme.palette.primary.main })}>
           <Typography
             component="h1"
             variant="h2"
@@ -45,7 +45,7 @@ const HomePage = () => {
                   height: 150, width: 300, background: theme.palette.secondary.main, display: 'flex', justifyContent: 'center', alignItems: 'center',
                 })}
                 >
-                  <Typography variant="h6" sx={{ textAlign: 'center' }}>MŪSŲ ISTORIJA</Typography>
+                  <Typography variant="h6" sx={{ textAlign: 'center' }}>KONCEPTAS</Typography>
                 </Item>
               </Grid>
               <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/gallery')}>

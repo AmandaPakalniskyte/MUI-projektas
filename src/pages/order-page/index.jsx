@@ -16,7 +16,7 @@ import {
 const deliveryOptions = [
   { value: 'home', label: 'Į namus' },
   { value: 'office', label: 'Į mūsų parduotuvę' },
-  { value: 'office', label: 'Į paštomatą' },
+  { value: 'post', label: 'Į paštomatą' },
 ];
 
 const OrderPage = () => {

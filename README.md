@@ -1,4 +1,4 @@
-# Aunt cup page
+# Gallery page
 
 ## install dependecies
 ```

@@ -6,13 +6,14 @@ import {
   IconButton,
 } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
 
 const pages = [
   { text: 'Pagrindinis', to: '/' },
-  { text: 'Mūsų istorija', to: '/history' },
+  { text: 'Konceptas', to: '/history' },
   { text: 'Paveikslų galerija', to: '/gallery' },
 ];
 
@@ -30,20 +31,27 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
-
         <Box sx={{ display: 'flex', alignSelf: 'stretch' }}>
           {pages.map(({ text, to }) => <Nav.Link key={to} to={to}>{text}</Nav.Link>)}
         </Box>
-
-        <IconButton
-          size="large"
-          edge="end"
-          color="inherit"
-          onClick={() => navigate('/cart')}
-        >
-          <ShoppingBasketIcon />
-        </IconButton>
-
+        <Box>
+          <IconButton
+            size="large"
+            edge="end"
+            color="inherit"
+            onClick={() => navigate('/favourites')}
+          >
+            <FavoriteBorderIcon />
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="end"
+            color="inherit"
+            onClick={() => navigate('/cart')}
+          >
+            <ShoppingBasketIcon />
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );
