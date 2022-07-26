@@ -9,12 +9,12 @@ import {
   IconButton,
 } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { styled } from '@mui/material/styles';
 import { Image, TypographyLimited } from '../../../components';
 import CartContext from '../../../contexts/cart-context';
 import FavouritesContext from '../../../contexts/favourites-context';
+import PopupWindow from './popup-window';
 
 const Item = styled(Box)(({ theme }) => ({
 
@@ -64,11 +64,8 @@ const GalleryCard = ({
         <Typography variant="h5" component="div" sx={{ mt: 2 }}>{price}</Typography>
       </CardContent>
       <CardActions sx={{ p: 1, alignSelf: 'center' }}>
-        <Button size="small" variant="contained">
-          <IconButton sx={(theme) => ({ color: theme.palette.primary.contrastText })}>
-            <RemoveRedEyeIcon />
-          </IconButton>
-        </Button>
+        <PopupWindow />
+
         <Button size="small" variant="contained" onClick={() => addToFavourites(id)}>
           <IconButton sx={(theme) => ({ color: theme.palette.primary.contrastText })}>
             <FavoriteBorderIcon />
