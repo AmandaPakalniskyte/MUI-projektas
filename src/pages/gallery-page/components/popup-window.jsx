@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+
+import InfoIcon from '@mui/icons-material/Info';
 import { IconButton } from '@mui/material';
 
 const style = {
@@ -23,24 +24,57 @@ const PopupWindow = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // const [paintings, setPaintings] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   fetch('http://localhost:8000/paintings')
+  //     .then((res) => res.json())
+  //     .then((fetchedPaintings) => setPaintings(fetchedPaintings));
+  // }, []);
+
   return (
     <div>
-      <Button sx={{ mr: 1 }} size="small" variant="contained" onClick={handleOpen}>
-        <IconButton sx={(theme) => ({ color: theme.palette.primary.contrastText })}>
-          <RemoveRedEyeIcon />
-        </IconButton>
 
-      </Button>
+      <IconButton
+        sx={(theme) => ({ color: theme.palette.primary.main })}
+        onClick={handleOpen}
+      >
+        <InfoIcon />
+      </IconButton>
+
       <Modal
         open={open}
         onClose={handleClose}
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            lala
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+
+            {/* <Box sx={{ height: '100', width: '100', backgroundColor: 'blue' }}>
+              {paintings.map(({
+                id,
+                title,
+                description,
+                img,
+                category,
+                price,
+                dimensions,
+              }) => (
+                <Box key={id}>
+                  <Box
+                    id={id}
+                    title={title}
+                    description={description}
+                    img={img}
+                    category={category}
+                    price={price}
+                    dimensions={dimensions}
+                  />
+                </Box>
+              ))}
+            </Box> */}
           </Typography>
         </Box>
       </Modal>

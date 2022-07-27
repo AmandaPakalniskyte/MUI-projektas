@@ -23,7 +23,19 @@ const App = () => {
   // Kuomet keičiasi stebimi kintamieji, perskaičiuojama reikšmė kviečiant funkciją pirmu parametru
   const cartContextValue = React.useMemo(() => ({
     cartItems,
-    addToCart: (item) => setCartItems([...cartItems, item]),
+    addToCart: (item) => {
+      if (cartItems.find((x) => x.id === item.id)) {
+        if (item.count === 0) {
+          setCartItems(cartItems.filter((x) => x.id !== item.id));
+        } else {
+          setCartItems(cartItems.map((x) => (x.id === item.id ? { ...x, count: item.count } : x)));
+        }
+      } else {
+        setCartItems([...cartItems, item]);
+      }
+    },
+    getItemCount: (id) => cartItems.find((x) => x.id === id)?.count ?? 0,
+    deleteItem: (id) => setCartItems(cartItems.filter((x) => x.id !== id)),
   }), [cartItems]);
 
   const favouritesContextValue = React.useMemo(() => ({
