@@ -1,112 +1,124 @@
 {
-	"paintings": [
-		{
-			"id": "5154E9B3-8BD7-3C0A-E142-E4848C147243",
-			"title": "Bold",
-			"description": "ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis",
-			"category": "abstraktus",
-			"img": "/bold.jpg",
-			"price": "500 EUR",
-			"dimensions": "60 x 80"
-		},
-		{
-			"id": "D23A657F-CBEC-9639-2E85-7CA56B098603",
-			"title": "Chaos",
-			"description": "luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos",
-			"category": "abstraktus",
-			"img": "/chaos.jpg",
-			"price": "100 EUR",
-			"dimensions": "100 x 100"
-		},
-		{
-			"id": "12A4CD9E-F969-7106-0E70-A8214ED12111",
-			"title": "Color",
-			"description": "Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut",
-			"category": "abstraktus",
-			"img": "/color.jpg",
-			"price": "200 EUR",
-			"dimensions": "60 x 80"
-		},
-		{
-			"id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
-			"title": "Dark",
-			"description": "tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat",
-			"category": "gamta",
-			"img": "/dark.jpg",
-			"price": "250 EUR",
-			"dimensions": "80 x 100"
-		},
-		{
-			"id": "815C5D64-820D-2DCD-10AA-59EE2D0BC780",
-			"title": "Eyes",
-			"description": "Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam",
-			"category": "portretas",
-			"img": "/eyes.jpg",
-			"price": "120 EUR",
-			"dimensions": "80 x 100"
-		},
-		{
-			"id": "9DB881E2-10C5-C379-E7A3-1C5836853892",
-			"title": "Flower",
-			"description": "vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et",
-			"category": "gamta",
-			"img": "/flower.jpg",
-			"price": "800 EUR",
-			"dimensions": "80 x 100"
-		},
-		{
-			"id": "E9522542-AB55-9279-A13C-03645AE88D28",
-			"title": "Flowers",
-			"description": "egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia",
-			"category": "gamta",
-			"img": "/flowers.jpg",
-			"price": "80 EUR",
-			"dimensions": "60 x 80"
-		},
-		{
-			"id": "25D5DF9E-91AA-0358-D7DA-A70C6C448F2A",
-			"title": "Mister",
-			"description": "erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam.",
-			"category": "portretas",
-			"img": "/mister.jpg",
-			"price": "100 EUR",
-			"dimensions": "100 x 100"
-		},
-		{
-			"id": "F1BB0713-A37A-9766-7896-26BDADC62132",
-			"title": "Scales",
-			"description": "dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula consectetuer rhoncus. Nullam velit dui, semper et, lacinia vitae, sodales at,",
-			"category": "abstraktus",
-			"img": "/scales.jpg",
-			"price": "250 EUR",
-			"dimensions": "100 x 100"
-		},
-		{
-			"id": "FDEA9082-2D95-F3B3-A5B2-F851EC375AAC",
-			"title": "Sea",
-			"description": "dui, semper et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus euismod urna. Nullam lobortis quam a",
-			"category": "abstraktus",
-			"img": "/sea.jpg",
-			"price": "150 EUR",
-			"dimensions": "100 x 100"
-		},
-		{
-			"id": "6B09AC86-EBD2-41B1-1733-2AEEFE491165",
-			"title": "Strikes",
-			"description": "nec ligula consectetuer rhoncus. Nullam velit dui, semper et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem",
-			"category": "abstraktus",
-			"img": "/strikes.jpg",
-			"price": "90 EUR",
-			"dimensions": "120 x 160"
-		},
-		{
-			"id": "A565A92E-71B7-BEC0-EB49-A8E5B52DB31B",
-			"title": "Sunset",
-			"description": "egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna.",
-			"category": "abstraktus",
-			"img": "/sunset.jpg",
-			"price": "1500 EUR",
-			"dimensions": "120 x 160"
-		}
-	]
+  "paintings": [
+    {
+      "id": "5154E9B3-8BD7-3C0A-E142-E4848C147243",
+      "title": "Bold",
+      "description": "ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis",
+      "category": "abstraktus",
+      "img": "/bold.jpg",
+      "price": "500 EUR",
+      "dimensions": "60 x 80",
+      "liked": false
+    },
+    {
+      "id": "D23A657F-CBEC-9639-2E85-7CA56B098603",
+      "title": "Chaos",
+      "description": "luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos",
+      "category": "abstraktus",
+      "img": "/chaos.jpg",
+      "price": "100 EUR",
+      "dimensions": "100 x 100",
+      "liked": false
+    },
+    {
+      "id": "12A4CD9E-F969-7106-0E70-A8214ED12111",
+      "title": "Color",
+      "description": "Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut",
+      "category": "abstraktus",
+      "img": "/color.jpg",
+      "price": "200 EUR",
+      "dimensions": "60 x 80",
+      "liked": false
+    },
+    {
+      "id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
+      "title": "Dark",
+      "description": "tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat",
+      "category": "gamta",
+      "img": "/dark.jpg",
+      "price": "250 EUR",
+      "dimensions": "80 x 100",
+      "liked": false
+    },
+    {
+      "id": "815C5D64-820D-2DCD-10AA-59EE2D0BC780",
+      "title": "Eyes",
+      "description": "Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam",
+      "category": "portretas",
+      "img": "/eyes.jpg",
+      "price": "120 EUR",
+      "dimensions": "80 x 100",
+      "liked": false
+    },
+    {
+      "id": "9DB881E2-10C5-C379-E7A3-1C5836853892",
+      "title": "Flower",
+      "description": "vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et",
+      "category": "gamta",
+      "img": "/flower.jpg",
+      "price": "800 EUR",
+      "dimensions": "80 x 100",
+      "liked": false
+    },
+    {
+      "id": "E9522542-AB55-9279-A13C-03645AE88D28",
+      "title": "Flowers",
+      "description": "egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia",
+      "category": "gamta",
+      "img": "/flowers.jpg",
+      "price": "80 EUR",
+      "dimensions": "60 x 80",
+      "liked": false
+    },
+    {
+      "id": "25D5DF9E-91AA-0358-D7DA-A70C6C448F2A",
+      "title": "Mister",
+      "description": "erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam.",
+      "category": "portretas",
+      "img": "/mister.jpg",
+      "price": "100 EUR",
+      "dimensions": "100 x 100",
+      "liked": false
+    },
+    {
+      "id": "F1BB0713-A37A-9766-7896-26BDADC62132",
+      "title": "Scales",
+      "description": "dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula consectetuer rhoncus. Nullam velit dui, semper et, lacinia vitae, sodales at,",
+      "category": "abstraktus",
+      "img": "/scales.jpg",
+      "price": "250 EUR",
+      "dimensions": "100 x 100",
+      "liked": false
+    },
+    {
+      "id": "FDEA9082-2D95-F3B3-A5B2-F851EC375AAC",
+      "title": "Sea",
+      "description": "dui, semper et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus euismod urna. Nullam lobortis quam a",
+      "category": "abstraktus",
+      "img": "/sea.jpg",
+      "price": "150 EUR",
+      "dimensions": "100 x 100",
+      "liked": false
+    },
+    {
+      "id": "6B09AC86-EBD2-41B1-1733-2AEEFE491165",
+      "title": "Strikes",
+      "description": "nec ligula consectetuer rhoncus. Nullam velit dui, semper et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem",
+      "category": "abstraktus",
+      "img": "/strikes.jpg",
+      "price": "90 EUR",
+      "dimensions": "120 x 160",
+      "liked": false
+    },
+    {
+      "id": "A565A92E-71B7-BEC0-EB49-A8E5B52DB31B",
+      "title": "Sunset",
+      "description": "egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna.",
+      "category": "abstraktus",
+      "img": "/sunset.jpg",
+      "price": "1500 EUR",
+      "dimensions": "120 x 160",
+      "liked": false
+    }
+  ]
 }

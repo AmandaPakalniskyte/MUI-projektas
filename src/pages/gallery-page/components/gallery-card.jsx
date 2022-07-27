@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
 import { Image, TypographyLimited } from '../../../components';
@@ -35,6 +36,8 @@ const GalleryCard = ({
   description,
   dimensions,
   price,
+  liked,
+  updatePainting,
 }) => {
   const { addToCart, getItemCount, deleteItem } = React.useContext(CartContext);
   const itemCountInCart = getItemCount(id);
@@ -45,7 +48,7 @@ const GalleryCard = ({
   }, [itemCountInCart]);
 
   const { addToFavourites } = React.useContext(FavouritesContext);
-  const [disable, setDisable] = React.useState();
+  // const [disable, setDisable] = React.useState();
 
   // React.useEffect(() => {
   //   setDisable(!disable);
@@ -80,12 +83,13 @@ const GalleryCard = ({
         >
           <Typography variant="h5" component="div" sx={{ mr: 2 }}>{title}</Typography>
           <IconButton
-            disabled={disable}
+            // disabled={disable}
             sx={(theme) => ({ color: theme.palette.primary.main })}
-            onClick={() => { addToFavourites(id); setDisable(true); }}
+            onClick={() => { addToFavourites(id); updatePainting({ id, liked: !liked }); }}
           >
-            <FavoriteBorderIcon />
+            {liked ? <FavoriteIcon color="primary" /> : <FavoriteBorderIcon color="primary" />}
           </IconButton>
+
           <PopupWindow />
         </Box>
         <TypographyLimited variant="body2" color="text.secondary">{description}</TypographyLimited>
