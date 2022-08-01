@@ -14,10 +14,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
 import { Image, TypographyLimited } from '../../../components';
 import CartContext from '../../../contexts/cart-context';
 import FavouritesContext from '../../../contexts/favourites-context';
-import PopupWindow from './popup-window';
+
+// import PopupWindow from './popup-window';
 
 const Item = styled(Box)(({ theme }) => ({
 
@@ -39,6 +42,7 @@ const GalleryCard = ({
   liked,
   updatePainting,
 }) => {
+  const navigate = useNavigate();
   const { addToCart, getItemCount, deleteItem } = React.useContext(CartContext);
   const itemCountInCart = getItemCount(id);
   const [count, setCount] = React.useState(itemCountInCart === 0 ? 1 : itemCountInCart);
@@ -48,6 +52,7 @@ const GalleryCard = ({
   }, [itemCountInCart]);
 
   const { addToFavourites } = React.useContext(FavouritesContext);
+
   // const [disable, setDisable] = React.useState();
 
   // React.useEffect(() => {
@@ -89,8 +94,14 @@ const GalleryCard = ({
           >
             {liked ? <FavoriteIcon color="primary" /> : <FavoriteBorderIcon color="primary" />}
           </IconButton>
+          <IconButton
+            sx={(theme) => ({ color: theme.palette.primary.main })}
+            onClick={() => { navigate(`/info/${id}`); }}
+          >
+            <InfoIcon />
+          </IconButton>
 
-          <PopupWindow />
+          {/* <PopupWindow /> */}
         </Box>
         <TypographyLimited variant="body2" color="text.secondary">{description}</TypographyLimited>
         <Typography variant="h5" component="div" sx={{ mt: 2 }}>{price}</Typography>

@@ -4,10 +4,13 @@ const baseTheme = createTheme({
   palette: {
     primary: {
       main: '#1c1b1a',
+      light: '#d1cfcd',
+      contrast: '#E8E8E8',
       contrastText: '#eeeeee',
     },
     secondary: {
       main: '#d4812a',
+      light: '#de9d59',
       dark: '#d6c8bc',
       contrastText: '#eeeeee',
     },

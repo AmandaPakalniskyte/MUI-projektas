@@ -8,7 +8,7 @@
       "img": "/bold.jpg",
       "price": "500 EUR",
       "dimensions": "60 x 80",
-      "liked": false
+      "liked": true
     },
     {
       "id": "D23A657F-CBEC-9639-2E85-7CA56B098603",
