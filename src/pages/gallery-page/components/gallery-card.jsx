@@ -20,8 +20,6 @@ import { Image, TypographyLimited } from '../../../components';
 import CartContext from '../../../contexts/cart-context';
 import FavouritesContext from '../../../contexts/favourites-context';
 
-// import PopupWindow from './popup-window';
-
 const Item = styled(Box)(({ theme }) => ({
 
   ':hover': {
@@ -53,20 +51,6 @@ const GalleryCard = ({
 
   const { addToFavourites } = React.useContext(FavouritesContext);
 
-  // const [disable, setDisable] = React.useState();
-
-  // React.useEffect(() => {
-  //   setDisable(!disable);
-  // }, [disable]);
-
-  // const itemCountInFavourites = getFavouritesCount(id);
-  // eslint-disable-next-line max-len
-  // const [favCount, setFavCount] = React.useState(itemCountInFavourites === 0 ? 1 : itemCountInCart);
-
-  // React.useEffect(() => {
-  //   setFavCount(itemCountInFavourites === 0 ? 1 : itemCountInFavourites);
-  // }, [itemCountInFavourites]);
-
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ position: 'relative', width: '100%', pt: '95%' }}>
@@ -88,7 +72,6 @@ const GalleryCard = ({
         >
           <Typography variant="h5" component="div" sx={{ mr: 2 }}>{title}</Typography>
           <IconButton
-            // disabled={disable}
             sx={(theme) => ({ color: theme.palette.primary.main })}
             onClick={() => { addToFavourites(id); updatePainting({ id, liked: !liked }); }}
           >
@@ -100,13 +83,11 @@ const GalleryCard = ({
           >
             <InfoIcon />
           </IconButton>
-
-          {/* <PopupWindow /> */}
         </Box>
         <TypographyLimited variant="body2" color="text.secondary">{description}</TypographyLimited>
         <Typography variant="h5" component="div" sx={{ mt: 2 }}>{price}</Typography>
       </CardContent>
-      <CardActions sx={{ p: 1, alignSelf: 'center' }}>
+      <CardActions sx={{ pb: 2, alignSelf: 'center' }}>
         <Button
           size="small"
           variant="contained"

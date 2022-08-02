@@ -15,12 +15,12 @@ import FavouritesPage from './pages/favourites-page';
 import ErrorPage from './pages/error-page';
 import CartContext from './contexts/cart-context';
 import FavouritesContext from './contexts/favourites-context';
-import InfoContext from './contexts/info-context';
+// import InfoContext from './contexts/info-context';
 
 const App = () => {
   const [cartItems, setCartItems] = React.useState([]);
   const [favouriteItems, setFavouriteItems] = React.useState([]);
-  const [infoItems, setInfoItems] = React.useState([]);
+  // const [infoItems, setInfoItems] = React.useState([]);
 
   // React.useMemo( FUNKCIJA_KURI_GRĄŽINA_REIKŠMĘ, MASYVAS_SU_STEBIMAIS_KINTAMAISIAIS)
   // Kuomet keičiasi stebimi kintamieji, perskaičiuojama reikšmė kviečiant funkciją pirmu parametru
@@ -46,28 +46,28 @@ const App = () => {
     addToFavourites: (item) => setFavouriteItems([...favouriteItems, item]),
   }), [favouriteItems]);
 
-  const infoContextValue = React.useMemo(() => ({
-    infoItems,
-    sendToInfoPage: (item) => setInfoItems([...infoItems, item]),
-  }), [infoItems]);
+  // const infoContextValue = React.useMemo(() => ({
+  //   infoItems,
+  //   sendToInfoPage: (item) => setInfoItems([...infoItems, item]),
+  // }), [infoItems]);
 
   return (
     <BrowserRouter>
       <CartContext.Provider value={cartContextValue}>
         <FavouritesContext.Provider value={favouritesContextValue}>
-          <InfoContext.Provider value={infoContextValue}>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
-              <Route path="/history" element={<HistoryPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/favourites" element={<FavouritesPage />} />
-              <Route path="/order" element={<OrderPage />} />
-              <Route path="/info/:id" element={<InfoPage />} />
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
-          </InfoContext.Provider>
+          {/* <InfoContext.Provider value={infoContextValue}> */}
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/favourites" element={<FavouritesPage />} />
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/info/:id" element={<InfoPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          {/* </InfoContext.Provider> */}
         </FavouritesContext.Provider>
       </CartContext.Provider>
     </BrowserRouter>

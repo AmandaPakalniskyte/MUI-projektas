@@ -20,17 +20,15 @@ export const ContentContainer = styled(Box)({
   width: '100%',
   zIndex: 2,
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'center',
   alignItems: 'center',
 });
 
 export const Content = styled(Box)(({ theme }) => ({
-  margin: theme.spacing(8, 8, 6, 0),
-  height: '80%',
-  width: 650,
-  color: theme.palette.common.white,
+  width: '60vw',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   gap: theme.spacing(6),
+
 }));

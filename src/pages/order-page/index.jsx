@@ -10,7 +10,16 @@ import {
   Radio,
   Divider,
   Checkbox,
+  styled,
 } from '@mui/material';
+
+const StyledButton = styled(Button)(() => ({
+
+  ':hover': {
+    transform: 'scale(1.2)',
+  },
+
+}));
 
 const deliveryOptions = [
   { value: 'home', label: 'Į namus' },
@@ -34,16 +43,19 @@ const OrderPage = () => {
   const [payment, setPayment] = React.useState(null);
 
   return (
-    <Box sx={{ pt: 7, display: 'flex' }}>
+    <Box sx={{
+      mr: 6, py: 5, display: 'flex',
+    }}
+    >
       <Paper
         elevation={3}
         sx={(theme) => ({
-          mt: 4,
+          mt: 2,
           p: 3,
           width: 500,
           mx: 'auto',
-          background: theme.palette.primary.main,
-          color: theme.palette.primary.contrastText,
+          background: theme.palette.secondary.opaque,
+          color: theme.palette.primary.main,
         })}
 
       >
@@ -57,9 +69,9 @@ const OrderPage = () => {
           }}
         >
 
-          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>PIRKĖJO DUOMENYS</Divider>
+          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PIRKĖJO DUOMENYS</Divider>
           <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="fullname"
             label="Vardas ir pavardė"
             variant="filled"
@@ -68,7 +80,7 @@ const OrderPage = () => {
             value={fullname}
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="email"
             type="email"
             label="El. paštas"
@@ -77,9 +89,9 @@ const OrderPage = () => {
             value={email}
             fullWidth
           />
-          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>ADRESAS</Divider>
+          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>ADRESAS</Divider>
           <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="street"
             label="Gatvė ir namo numeris"
             variant="filled"
@@ -88,7 +100,7 @@ const OrderPage = () => {
             fullWidth
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="city"
             label="Miestas"
             variant="filled"
@@ -98,9 +110,9 @@ const OrderPage = () => {
           />
 
           <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>PRISTATYMO BŪDAS</Divider>
+            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PRISTATYMO BŪDAS</Divider>
             <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+              sx={(theme) => ({ color: theme.palette.primary.main })}
               name="delivery"
               value={delivery}
               onChange={(_, newDelivery) => setDelivery(newDelivery)}
@@ -110,48 +122,10 @@ const OrderPage = () => {
               ))}
             </RadioGroup>
           </FormControl>
-          <Box sx={{ alignSelf: 'flex-start' }}>
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  sx={(theme) => ({ color: theme.palette.primary.contrastText })}
-                  checked={consent}
-                  onChange={(_, newConsent) => setConsent(newConsent)}
-                />
-              )}
-              label="Sutinku su asmens duomenų tvarkymo politika"
-            />
-          </Box>
-          <Button type="submit" variant="contained" size="large" sx={(theme) => ({ background: theme.palette.secondary.main })}>Užsakyti</Button>
-        </Box>
-      </Paper>
-      <Paper
-        elevation={3}
-        sx={(theme) => ({
-          mt: 4,
-          p: 3,
-          width: 500,
-          mx: 'auto',
-          background: theme.palette.primary.main,
-          color: theme.palette.primary.contrastText,
-        })}
-
-      >
-        <Box
-          component="form"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 3,
-          }}
-        >
-
-          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>MOKĖJIMO DUOMENYS</Divider>
           <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>Mokėjimo būdas</Divider>
+            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>MOKĖJIMO BŪDAS</Divider>
             <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+              sx={(theme) => ({ color: theme.palette.primary.main })}
               name="payment"
               value={payment}
               onChange={(_, newPayment) => setPayment(newPayment)}
@@ -161,63 +135,11 @@ const OrderPage = () => {
               ))}
             </RadioGroup>
           </FormControl>
-          <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
-            name="fullname"
-            label="Vardas ir pavardė"
-            variant="filled"
-            fullWidth
-            onChange={(event) => setFullname(event.target.value)}
-            value={fullname}
-          />
-          <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
-            name="email"
-            type="email"
-            label="El. paštas"
-            variant="filled"
-            onChange={(event) => setEmail(event.target.value)}
-            value={email}
-            fullWidth
-          />
-          <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>ADRESAS</Divider>
-          <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
-            name="street"
-            label="Gatvė ir namo numeris"
-            variant="filled"
-            onChange={(event) => setStreet(event.target.value)}
-            value={street}
-            fullWidth
-          />
-          <TextField
-            sx={(theme) => ({ background: theme.palette.common.white })}
-            name="city"
-            label="Miestas"
-            variant="filled"
-            onChange={(event) => setCity(event.target.value)}
-            value={city}
-            fullWidth
-          />
-
-          <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.secondary.main })}>PRISTATYMO BŪDAS</Divider>
-            <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
-              name="delivery"
-              value={delivery}
-              onChange={(_, newDelivery) => setDelivery(newDelivery)}
-            >
-              {deliveryOptions.map(({ value, label }) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
           <Box sx={{ alignSelf: 'flex-start' }}>
             <FormControlLabel
               control={(
                 <Checkbox
-                  sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+                  sx={(theme) => ({ color: theme.palette.primary.main })}
                   checked={consent}
                   onChange={(_, newConsent) => setConsent(newConsent)}
                 />
@@ -225,9 +147,21 @@ const OrderPage = () => {
               label="Sutinku su asmens duomenų tvarkymo politika"
             />
           </Box>
-          <Button type="submit" variant="contained" size="large" sx={(theme) => ({ background: theme.palette.secondary.main })}>Užsakyti</Button>
+          <StyledButton
+            type="submit"
+            variant="contained"
+            size="large"
+            sx={(theme) => ({
+              background: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
+            })}
+          >
+            Užsakyti
+
+          </StyledButton>
         </Box>
       </Paper>
+
     </Box>
   );
 };

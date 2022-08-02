@@ -41,13 +41,13 @@ const GalleryPage = () => {
   React.useEffect(() => { handleFetchPaintings(); }, []);
 
   return (
-    <Box sx={(theme) => ({ background: theme.palette.primary.contrast })}>
+    <Box sx={(theme) => ({ background: theme.palette.secondary.main })}>
       <Box sx={{
         display: 'flex', gap: { xs: 4, xl: 0 }, pt: 11, px: 2,
       }}
       >
         <Filters drawerWidth={drawerWidth} />
-        <Grid container spacing={2} sx={{ pl: { xl: `${drawerWidth}px` } }}>
+        <Grid container spacing={3} sx={{ pl: { xl: `${drawerWidth}px` } }}>
           {paintings.map(({
             id,
             title,

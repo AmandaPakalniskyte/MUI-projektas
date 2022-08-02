@@ -21,9 +21,18 @@ const HomePage = () => {
 
   return (
     <Box sx={{ height: '100vh', position: 'relative' }}>
-      <Home.Background component="img" src="/main4.jpg" />
+      <Home.Background component="img" src="/beige6.jpg" />
       <Home.ContentContainer>
-        <Home.Content component="main" sx={(theme) => ({ color: theme.palette.primary.main })}>
+        <Home.Content
+          component="main"
+          sx={(theme) => ({
+            mt: '10vh',
+            padding: 5,
+            background: theme.palette.secondary.opaque,
+            color: theme.palette.primary.main,
+            borderRadius: 1,
+          })}
+        >
           <Typography
             component="h1"
             variant="h2"
@@ -42,7 +51,7 @@ const HomePage = () => {
             <Grid container flexDirection="column" alignItems="center" sx={{ width: '100%', gap: 3 }}>
               <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/history')}>
                 <Item sx={(theme) => ({
-                  height: 150, width: 300, background: theme.palette.secondary.main, display: 'flex', justifyContent: 'center', alignItems: 'center',
+                  height: '15vh', width: 300, background: theme.palette.secondary.main, display: 'flex', justifyContent: 'center', alignItems: 'center',
                 })}
                 >
                   <Typography variant="h6" sx={{ textAlign: 'center' }}>KONCEPTAS</Typography>
@@ -50,7 +59,7 @@ const HomePage = () => {
               </Grid>
               <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/gallery')}>
                 <Item sx={(theme) => ({
-                  height: 150, width: 300, background: theme.palette.secondary.main, display: 'flex', justifyContent: 'center', alignItems: 'center',
+                  height: '15vh', width: 300, background: theme.palette.secondary.main, display: 'flex', justifyContent: 'center', alignItems: 'center',
                 })}
                 >
                   <Typography variant="h6" sx={{ textAlign: 'center' }}>PAVEIKLSŲ GALERIJA</Typography>
