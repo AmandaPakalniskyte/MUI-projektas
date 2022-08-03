@@ -6,7 +6,13 @@ const FavouritesPage = () => {
   const { favouriteItems } = React.useContext(FavouritesContext);
 
   return (
-    <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(favouriteItems, null, 4)}</Box>
+
+    <Box
+      height="100vh"
+      sx={(theme) => ({ background: theme.palette.secondary.main, mt: '-56px' })}
+    >
+      <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(favouriteItems, null, 4)}</Box>
+    </Box>
   );
 };
 

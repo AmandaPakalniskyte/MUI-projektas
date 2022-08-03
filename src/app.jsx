@@ -8,9 +8,10 @@ import { Navbar } from './components';
 import HomePage from './pages/home-page';
 import GalleryPage from './pages/gallery-page';
 import HistoryPage from './pages/history-page';
-import CartPage from './pages/cart-page';
-import OrderPage from './pages/order-page';
+// import ListSection from './pages/order-page/components/list-section';
+// import ContactSection from './pages/order-page/components/contact-section';
 import InfoPage from './pages/info-page';
+import OrderPage from './pages/order-page';
 import FavouritesPage from './pages/favourites-page';
 import ErrorPage from './pages/error-page';
 import CartContext from './contexts/cart-context';
@@ -61,7 +62,6 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/history" element={<HistoryPage />} />
-            <Route path="/cart" element={<CartPage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/info/:id" element={<InfoPage />} />

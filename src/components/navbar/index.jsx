@@ -47,7 +47,7 @@ const Navbar = () => {
             size="large"
             edge="end"
             color="inherit"
-            onClick={() => navigate('/cart')}
+            onClick={() => navigate('/order')}
           >
             <ShoppingBasketIcon />
           </IconButton>
