@@ -13,7 +13,7 @@ import * as Nav from './components';
 
 const pages = [
   { text: 'Pagrindinis', to: '/' },
-  { text: 'Konceptas', to: '/history' },
+  { text: 'Konceptas', to: '/concept' },
   { text: 'Paveikslų galerija', to: '/gallery' },
 ];
 

@@ -7,7 +7,7 @@ import {
 import { Navbar } from './components';
 import HomePage from './pages/home-page';
 import GalleryPage from './pages/gallery-page';
-import HistoryPage from './pages/history-page';
+import ConceptPage from './pages/concept-page';
 // import ListSection from './pages/order-page/components/list-section';
 // import ContactSection from './pages/order-page/components/contact-section';
 import InfoPage from './pages/info-page';
@@ -44,13 +44,15 @@ const App = () => {
 
   const favouritesContextValue = React.useMemo(() => ({
     favouriteItems,
-    addToFavourites: (item) => setFavouriteItems([...favouriteItems, item]),
+    addToFavourites: (item) => {
+      if (favouriteItems.filter((x) => x.id === item.id)) {
+        setFavouriteItems([...favouriteItems, item]);
+      } else {
+        setFavouriteItems([]);
+      }
+    },
+    // deleteFavourite: (id) => setFavouriteItems(favouriteItems.filter((x) => x.id !== id)),
   }), [favouriteItems]);
-
-  // const infoContextValue = React.useMemo(() => ({
-  //   infoItems,
-  //   sendToInfoPage: (item) => setInfoItems([...infoItems, item]),
-  // }), [infoItems]);
 
   return (
     <BrowserRouter>
@@ -61,7 +63,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/concept" element={<ConceptPage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/info/:id" element={<InfoPage />} />

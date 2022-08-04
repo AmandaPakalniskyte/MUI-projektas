@@ -82,7 +82,7 @@ const HomePage = () => {
           </Typography>
           <Box>
             <Grid container flexDirection="column" alignItems="center" sx={{ width: '100%', gap: 4 }}>
-              <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/history')}>
+              <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/concept')}>
                 <Item sx={(theme) => ({
                   height: {
                     lg: 120,
