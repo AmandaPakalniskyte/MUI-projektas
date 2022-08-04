@@ -44,7 +44,9 @@ const ContactSection = () => {
 
   return (
     <Box sx={{
-      mr: 6, py: 5, display: 'flex',
+      // mr: 3,
+      py: 5,
+      display: 'flex',
     }}
     >
       <Paper
@@ -52,7 +54,14 @@ const ContactSection = () => {
         sx={(theme) => ({
           mt: 2,
           p: 3,
-          width: 500,
+          // width: 450,
+          width: {
+            xl: '450px',
+            lg: '100%',
+            md: '100%',
+            sm: '100%',
+            xs: '100%',
+          },
           mx: 'auto',
           background: theme.palette.secondary.opaque,
           color: theme.palette.primary.main,
@@ -156,7 +165,7 @@ const ContactSection = () => {
               color: theme.palette.primary.contrastText,
             })}
           >
-            Užsakyti
+            Pirkti
 
           </StyledButton>
         </Box>

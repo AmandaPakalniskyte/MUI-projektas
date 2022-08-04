@@ -16,7 +16,6 @@ const ListSection = () => {
           justifyContent="space-between"
           alignItems="center"
           my={2}
-          mx={6}
           pl={4}
           sx={(theme) => ({ borderRadius: 1, height: '100px', background: theme.palette.secondary.opaque })}
         >
