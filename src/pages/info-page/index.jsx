@@ -19,17 +19,17 @@ const InfoPage = () => {
       {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(infoItems, null, 4)}</Box> */}
       <Box
         key={id}
-        pt={15}
+        pt={8}
         pb={8}
         onChange={(event) => setPainting(event.target.value)}
         value={painting}
         height="100%"
         sx={(theme) => ({ background: theme.palette.secondary.main })}
       >
-        {/* <Box height="50px">{id}</Box> */}
+        <Box height="50px" />
         <Box sx={(theme) => ({
-          px: 3,
-          py: 3,
+          px: 5,
+          py: 5,
           width: {
             lg: '60vw',
             md: '70vw',
@@ -44,16 +44,36 @@ const InfoPage = () => {
           <Image
             src="/bold-wall.jpg"
             sx={{
-              position: 'relative', top: 0, left: 0, objectFit: 'contain',
+              position: 'relative', top: 0, left: 0, objectFit: 'contain', mb: 2,
             }}
           />
-          <Box sx={{ px: 1 }}>
-            <Typography variant="h6" component="div">Pavadinimas:</Typography>
+          <Box sx={{
+            px: 1,
+          }}
+          >
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontSize: {
+                  lg: 20,
+                  md: 15,
+                  sm: 15,
+                  xs: 13,
+                },
+              }}
+            >
+              {id}
+
+            </Typography>
             <Typography variant="h6" component="div">Autorius:</Typography>
             <Typography variant="h6" component="div">Autorių teisės:</Typography>
             <Typography variant="h6" component="div">Dydis:</Typography>
             <Typography variant="h6" component="div">Kategorija:</Typography>
-            <Typography variant="h6" component="div">Kaina:</Typography>
+            <Typography
+              variant="h6"
+              component="div"
+            />
             <Typography
               variant="h6"
               component="div"

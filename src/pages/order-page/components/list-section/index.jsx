@@ -37,14 +37,15 @@ const ListSection = () => {
       {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(cartItems, null, 4)}</Box> */}
 
       <Box width="100%">
-        <Typography variant="h4" ml={6}>Jūsų krepšelis</Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <Typography variant="h4" ml={1} mt={4}>Jūsų krepšelis</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           {cartItems.map(({
             id,
             img,
             title,
             dimensions,
             price,
+            count,
           }) => (
             <Item
               key={id}
@@ -52,6 +53,8 @@ const ListSection = () => {
               title={title}
               dimensions={dimensions}
               price={price}
+              count={count}
+              setCount={(newCount) => console.log(newCount)}
             />
           ))}
 
