@@ -4,21 +4,35 @@ import {
   Box,
   Toolbar,
   IconButton,
+  Drawer,
+  useMediaQuery,
 } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MenuIcon from '@mui/icons-material/Menu';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
 
-const pages = [
+const links = [
   { text: 'Pagrindinis', to: '/' },
   { text: 'Konceptas', to: '/concept' },
   { text: 'Paveikslų galerija', to: '/gallery' },
 ];
 
+const expandBr = 'sm';
+
 const Navbar = () => {
   const navigate = useNavigate();
+  const isContracted = useMediaQuery((theme) => theme.breakpoints.down(expandBr));
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!isContracted && open) {
+      setOpen(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isContracted]);
 
   return (
     <AppBar position="fixed">
@@ -27,13 +41,47 @@ const Navbar = () => {
           size="large"
           edge="start"
           color="inherit"
-          sx={{ display: { sm: 'none' } }}
+          sx={{ display: { [expandBr]: 'none' } }}
+          onClick={() => setOpen(!open)}
         >
-          <MenuIcon />
+          {open ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
-        <Box sx={{ display: 'flex', alignSelf: 'stretch' }}>
-          {pages.map(({ text, to }) => <Nav.Link key={to} to={to}>{text}</Nav.Link>)}
+
+        <Box sx={{
+          display: { xs: 'none', [expandBr]: 'flex' },
+          alignSelf: 'stretch',
+        }}
+        >
+          {links.map(({ text, to }) => <Nav.Link key={to} to={to}>{text}</Nav.Link>)}
         </Box>
+
+        {isContracted && (
+          <Drawer
+            anchor="top"
+            open={open}
+          >
+            <Box sx={(theme) => ({
+              ...theme.mixins.toolbarOffset,
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100vh',
+              backgroundColor: 'secondary.main',
+            })}
+            >
+              {links.map(({ text, to }) => (
+                <Nav.Link
+                  key={to}
+                  to={to}
+                  contracted
+                  onClick={() => setOpen(false)}
+                >
+                  {text}
+                </Nav.Link>
+              ))}
+            </Box>
+          </Drawer>
+        )}
+
         <Box>
           <IconButton
             size="large"
@@ -52,6 +100,7 @@ const Navbar = () => {
             <ShoppingBasketIcon />
           </IconButton>
         </Box>
+
       </Toolbar>
     </AppBar>
   );

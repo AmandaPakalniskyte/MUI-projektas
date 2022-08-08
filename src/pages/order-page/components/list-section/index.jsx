@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import CartContext from '../../../../contexts/cart-context';
 import Item from './components/item';
+import TotalSection from './components/total-section';
 
 const fetchItem = async ({ id, count }) => {
   const response = await fetch(`http://localhost:8000/paintings/${id}`);
@@ -31,6 +32,7 @@ const ListSection = () => {
       setCartItems(fetchedItems);
     })();
   }, [cartItemsData]);
+  const total = cartItems.reduce((prevSum, { count, price }) => prevSum + count * price, 0);
 
   return (
     <>
@@ -59,6 +61,7 @@ const ListSection = () => {
           ))}
 
         </Box>
+        <TotalSection total={total} />
 
       </Box>
 

@@ -93,10 +93,11 @@ const GalleryCard = ({
           variant="contained"
           onClick={() => addToCart({ id, count })}
           disabled={count === itemCountInCart}
+          sx={(theme) => ({ color: theme.palette.primary.contrastText, py: '12px' })}
         >
-          <IconButton sx={(theme) => ({ color: theme.palette.primary.contrastText })}>
-            <AddShoppingCartIcon />
-          </IconButton>
+
+          <AddShoppingCartIcon />
+
         </Button>
         <Box sx={{ display: 'flex', ml: 1 }}>
           <Button
@@ -137,10 +138,10 @@ const GalleryCard = ({
           size="small"
           variant="contained"
           onClick={() => deleteItem(id)}
+          sx={(theme) => ({ color: theme.palette.primary.contrastText, py: '12px' })}
         >
-          <IconButton sx={(theme) => ({ color: theme.palette.primary.contrastText })}>
-            <DeleteIcon />
-          </IconButton>
+          <DeleteIcon />
+
         </Button>
       </CardActions>
     </Card>

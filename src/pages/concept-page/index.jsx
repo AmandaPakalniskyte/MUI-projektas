@@ -8,15 +8,27 @@ const ConceptPage = () => (
   <>
     {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(infoItems, null, 4)}</Box> */}
     <Box
-      pt={15}
+      pt={12}
       pb={8}
       height="100%"
       sx={(theme) => ({ background: theme.palette.secondary.main })}
     >
       {/* <Box height="50px">{id}</Box> */}
       <Box sx={(theme) => ({
-        px: 5,
-        py: 5,
+        // px: 5,
+        // py: 5,
+        py: {
+          lg: '40px',
+          md: '40px',
+          sm: '20px',
+          xs: '20px',
+        },
+        px: {
+          lg: '40px',
+          md: '40px',
+          sm: '20px',
+          xs: '20px',
+        },
         width: {
           lg: '60vw',
           md: '70vw',
@@ -34,7 +46,10 @@ const ConceptPage = () => (
           sx={{
             fontSize: {
               lg: 40,
+              md: 30,
               sm: 30,
+              xs: 25,
+
             },
             py: 3,
           }}
@@ -46,7 +61,7 @@ const ConceptPage = () => (
           component="div"
           sx={{
             mx: 2,
-            my: 3,
+            my: 1,
             fontSize: {
               lg: 20,
               md: 15,

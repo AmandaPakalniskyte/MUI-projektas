@@ -28,7 +28,7 @@
       "img": "/color.jpg",
       "price": "200",
       "dimensions": "60 x 80",
-      "liked": true
+      "liked": false
     },
     {
       "id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
@@ -38,7 +38,7 @@
       "img": "/dark.jpg",
       "price": "250",
       "dimensions": "80 x 100",
-      "liked": true
+      "liked": false
     },
     {
       "id": "815C5D64-820D-2DCD-10AA-59EE2D0BC780",

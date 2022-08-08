@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  Box, Typography, Button, IconButton,
+  Box, Typography, Button,
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -28,8 +28,18 @@ const InfoPage = () => {
       >
         <Box height="50px" />
         <Box sx={(theme) => ({
-          px: 5,
-          py: 5,
+          py: {
+            lg: '40px',
+            md: '40px',
+            sm: '20px',
+            xs: '20px',
+          },
+          px: {
+            lg: '40px',
+            md: '40px',
+            sm: '20px',
+            xs: '20px',
+          },
           width: {
             lg: '60vw',
             md: '70vw',
@@ -100,15 +110,14 @@ const InfoPage = () => {
             </Typography>
             <Button
               width="100%"
-              size="small"
+              size="large"
               variant="contained"
               onClick={() => navigate('/gallery')}
+              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
             >
-              <IconButton
-                sx={(theme) => ({ color: theme.palette.primary.contrastText })}
-              >
-                <ArrowBackIosIcon />
-              </IconButton>
+
+              <ArrowBackIosIcon />
+
               Grįžti į galeriją
             </Button>
 
