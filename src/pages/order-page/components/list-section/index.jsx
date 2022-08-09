@@ -21,7 +21,7 @@ const fetchCartItems = async (cartItems) => {
 };
 
 const ListSection = () => {
-  const { cartItems: cartItemsData } = React.useContext(CartContext);
+  const { cartItems: cartItemsData, deleteItem, addToCart } = React.useContext(CartContext);
   const [cartItems, setCartItems] = React.useState([]);
   // console.table(cartItems);
 
@@ -32,14 +32,34 @@ const ListSection = () => {
       setCartItems(fetchedItems);
     })();
   }, [cartItemsData]);
+
   const total = cartItems.reduce((prevSum, { count, price }) => prevSum + count * price, 0);
+  console.log(cartItems);
 
   return (
     <>
       {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(cartItems, null, 4)}</Box> */}
 
-      <Box width="100%">
-        <Typography variant="h4" ml={1} mt={4}>Jūsų krepšelis</Typography>
+      <Box
+        alignSelf="center"
+        sx={() => ({
+          width: {
+            xl: '70%',
+            lg: '100%',
+            md: '100%',
+            sm: '100%',
+            xs: '100%',
+          },
+
+        })}
+      >
+        {cartItems.length > 0 && (
+        <Typography variant="h4" mt={4}>Jūsų krepšelis</Typography>
+        )}
+        {cartItems.length === 0 && (
+        <Typography variant="h4" mt={4}>Jūsų krepšelis tuščias</Typography>
+        )}
+
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           {cartItems.map(({
             id,
@@ -56,7 +76,8 @@ const ListSection = () => {
               dimensions={dimensions}
               price={price}
               count={count}
-              setCount={(newCount) => console.log(newCount)}
+              setCount={(newCount) => addToCart({ id, count: newCount })}
+              deleteItem={() => deleteItem(id)}
             />
           ))}
 

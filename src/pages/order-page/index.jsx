@@ -1,26 +1,24 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
 import ListSection from './components/list-section';
-import ContactSection from './components/contact-section';
 
 const OrderPage = () => (
   <Box sx={(theme) => ({
     display: 'flex',
     flexDirection: {
-      xl: 'row',
+      xl: 'column',
       lg: 'column',
       md: 'column',
       sm: 'column',
       xs: 'column',
     },
     pt: 10,
-    px: 4,
-    gap: 4,
+    px: 10,
+    height: '100vh',
     background: theme.palette.secondary.main,
   })}
   >
     <ListSection />
-    <ContactSection />
   </Box>
 );
 

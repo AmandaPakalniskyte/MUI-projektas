@@ -85,7 +85,11 @@ const GalleryCard = ({
           </IconButton>
         </Box>
         <TypographyLimited variant="body2" color="text.secondary">{description}</TypographyLimited>
-        <Typography variant="h5" component="div" sx={{ mt: 2 }}>{price}</Typography>
+        <Typography variant="h5" component="div" sx={{ mt: 2 }}>
+          {price}
+          {' '}
+          EUR
+        </Typography>
       </CardContent>
       <CardActions sx={{ pb: 2, alignSelf: 'center' }}>
         <Button

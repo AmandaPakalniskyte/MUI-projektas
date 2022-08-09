@@ -38,13 +38,24 @@ const TotalSection = ({ total }) => {
         {total > 0 && (
         <Box sx={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          alignItems: 'center',
         }}
         >
-          <Typography variant="h6">Iš viso: </Typography>
-          <Typography variant="h6">{` ${total.toFixed(2)} EUR`}</Typography>
+          <Typography variant="h6" mr={1} sx={{ fontWeight: 'bold' }}>Iš viso: </Typography>
+          <Typography variant="h6" mr={3} sx={{ fontWeight: 'bold' }}>{`${total.toFixed(2)} EUR`}</Typography>
+          <Button
+            width="100%"
+            size="large"
+            variant="contained"
+            onClick={() => navigate('/contact')}
+            sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+          >
+
+            Pirkti
+          </Button>
         </Box>
         )}
+
       </Box>
 
       {/* {total > 0 && (

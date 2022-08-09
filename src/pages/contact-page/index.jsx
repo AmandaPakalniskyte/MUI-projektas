@@ -12,6 +12,8 @@ import {
   Checkbox,
   styled,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const StyledButton = styled(Button)(() => ({
 
@@ -33,7 +35,7 @@ const paymentOptions = [
   { value: 'paypal', label: 'PayPal' },
 ];
 
-const ContactSection = () => {
+const ContactPage = () => {
   const [fullname, setFullname] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [street, setStreet] = React.useState('');
@@ -42,13 +44,40 @@ const ContactSection = () => {
   const [consent, setConsent] = React.useState(true);
   const [payment, setPayment] = React.useState(null);
 
+  const navigate = useNavigate();
+
+  const [show, setShow] = useState(false);
+
   return (
-    <Box sx={{
-      // mr: 3,
-      py: 5,
+    <Box sx={(theme) => ({
       display: 'flex',
-    }}
+      alignItems: 'center',
+      flexDirection: {
+        xl: 'column',
+        lg: 'column',
+        md: 'column',
+        sm: 'column',
+        xs: 'column',
+      },
+      py: 12,
+      pb: 10,
+      px: 10,
+      height: '100%',
+      background: theme.palette.secondary.main,
+    })}
     >
+      <Box>
+        <Button
+          width="100%"
+          size="large"
+          variant="contained"
+          onClick={() => navigate('/order')}
+          sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+        >
+
+          Grįžti į krepželį
+        </Button>
+      </Box>
       <Paper
         elevation={3}
         sx={(theme) => ({
@@ -56,8 +85,8 @@ const ContactSection = () => {
           p: 3,
           // width: 450,
           width: {
-            xl: '450px',
-            lg: '100%',
+            xl: '600px',
+            lg: '500px',
             md: '100%',
             sm: '100%',
             xs: '100%',
@@ -125,6 +154,7 @@ const ContactSection = () => {
               name="delivery"
               value={delivery}
               onChange={(_, newDelivery) => setDelivery(newDelivery)}
+              // onClick={() => setShow((prev) => !prev)}
             >
               {deliveryOptions.map(({ value, label }) => (
                 <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
@@ -137,8 +167,9 @@ const ContactSection = () => {
               sx={(theme) => ({ color: theme.palette.primary.main })}
               name="payment"
               value={payment}
-              onChange={(_, newPayment) => setPayment(newPayment)}
+              onChange={(_, newPayment) => { setPayment(newPayment); setShow((prev) => !prev); }}
             >
+              {show && <Box>This is your component</Box>}
               {paymentOptions.map(({ value, label }) => (
                 <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
               ))}
@@ -165,7 +196,7 @@ const ContactSection = () => {
               color: theme.palette.primary.contrastText,
             })}
           >
-            Pirkti
+            Pateikti užsakymą
 
           </StyledButton>
         </Box>
@@ -175,4 +206,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default ContactPage;

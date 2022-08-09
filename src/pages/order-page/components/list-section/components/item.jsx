@@ -16,6 +16,7 @@ const Item = ({
   count,
   setCount,
   price,
+  deleteItem,
 }) => (
   <Grid
     display="flex"
@@ -25,7 +26,7 @@ const Item = ({
     pl={2}
     sx={(theme) => ({ borderRadius: 1, height: '100px', background: theme.palette.secondary.opaque })}
   >
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       {/* <Box width="30px" height="30px" src={img} /> */}
       <CardMedia
         component="img"
@@ -36,13 +37,13 @@ const Item = ({
         }}
       />
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       <Box>{title}</Box>
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       <Box>{dimensions}</Box>
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       <Box sx={{ display: 'flex', ml: 1 }}>
         <Button
           variant="contained"
@@ -79,20 +80,20 @@ const Item = ({
         </Button>
       </Box>
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       <Box>{`${price} EUR`}</Box>
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="17%">
       <Box>{`${price * count} EUR`}</Box>
     </Grid>
-    <Grid item xs={2} width="16%">
+    <Grid item xs={2} width="10%">
       <Box>
         {/* <Button
           size="small"
           variant="contained"
         //   onClick={() => deleteItem(id)}
         > */}
-        <IconButton size="large" sx={(theme) => ({ color: theme.palette.primary.main })}>
+        <IconButton size="large" sx={(theme) => ({ color: theme.palette.primary.main })} onClick={deleteItem}>
           <DeleteIcon />
         </IconButton>
         {/* </Button> */}
