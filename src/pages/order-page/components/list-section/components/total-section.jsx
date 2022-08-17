@@ -20,7 +20,7 @@ const TotalSection = ({ total }) => {
     }}
     >
       <Box sx={{
-        display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center',
+        display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-start',
       }}
       >
         <Button
@@ -38,21 +38,37 @@ const TotalSection = ({ total }) => {
         {total > 0 && (
         <Box sx={{
           display: 'flex',
-          alignItems: 'center',
+
         }}
         >
-          <Typography variant="h6" mr={1} sx={{ fontWeight: 'bold' }}>Iš viso: </Typography>
-          <Typography variant="h6" mr={3} sx={{ fontWeight: 'bold' }}>{`${total.toFixed(2)} EUR`}</Typography>
-          <Button
-            width="100%"
-            size="large"
-            variant="contained"
-            onClick={() => navigate('/contact')}
-            sx={(theme) => ({ color: theme.palette.primary.contrastText })}
-          >
 
-            Pirkti
-          </Button>
+          <Box display="flex" flexDirection="column" gap={2}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              Suma:
+              {' '}
+              {`${total.toFixed(2)} EUR`}
+            </Typography>
+            <Button
+              width="100%"
+              size="large"
+              variant="contained"
+              onClick={() => navigate('/contact')}
+              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+            >
+
+              Pirkti kaip svečiui
+            </Button>
+            <Button
+              width="100%"
+              size="large"
+              variant="contained"
+              onClick={() => navigate('/login')}
+              sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+            >
+
+              Pirkti prisijungus
+            </Button>
+          </Box>
         </Box>
         )}
 

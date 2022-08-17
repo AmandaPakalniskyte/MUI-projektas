@@ -15,9 +15,9 @@ import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
 
 const links = [
-  { text: 'Pagrindinis', to: '/' },
-  { text: 'Konceptas', to: '/concept' },
-  { text: 'Paveikslų galerija', to: '/gallery' },
+  { text: 'PAGTINDINIS', to: '/' },
+  { text: 'KONCEPTAS', to: '/concept' },
+  { text: 'PAVEIKSLŲ GALERIJA', to: '/gallery' },
 ];
 
 const expandBr = 'sm';

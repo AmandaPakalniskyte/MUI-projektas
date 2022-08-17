@@ -18,7 +18,7 @@
       "img": "/chaos.jpg",
       "price": "100",
       "dimensions": "100 x 100",
-      "liked": true
+      "liked": false
     },
     {
       "id": "12A4CD9E-F969-7106-0E70-A8214ED12111",
@@ -28,7 +28,7 @@
       "img": "/color.jpg",
       "price": "200",
       "dimensions": "60 x 80",
-      "liked": false
+      "liked": true
     },
     {
       "id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
@@ -48,7 +48,7 @@
       "img": "/eyes.jpg",
       "price": "120",
       "dimensions": "80 x 100",
-      "liked": false
+      "liked": true
     },
     {
       "id": "9DB881E2-10C5-C379-E7A3-1C5836853892",
@@ -58,7 +58,7 @@
       "img": "/flower.jpg",
       "price": "800",
       "dimensions": "80 x 100",
-      "liked": false
+      "liked": true
     },
     {
       "id": "E9522542-AB55-9279-A13C-03645AE88D28",
@@ -68,7 +68,7 @@
       "img": "/flowers.jpg",
       "price": "80",
       "dimensions": "60 x 80",
-      "liked": false
+      "liked": true
     },
     {
       "id": "25D5DF9E-91AA-0358-D7DA-A70C6C448F2A",
@@ -78,7 +78,7 @@
       "img": "/mister.jpg",
       "price": "100",
       "dimensions": "100 x 100",
-      "liked": false
+      "liked": true
     },
     {
       "id": "F1BB0713-A37A-9766-7896-26BDADC62132",

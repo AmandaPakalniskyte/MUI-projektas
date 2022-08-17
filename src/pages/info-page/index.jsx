@@ -8,14 +8,33 @@ import { Image } from '../../components';
 // import GalleryCard from '../gallery-page/components/gallery-card';
 // import InfoContext from '../../contexts/info-context';
 
+// const fetchPainting = async ({ id }) => {
+//   const response = await fetch(`http://localhost:8000/paintings/${id}`);
+//   const painting = await response.json();
+
+//   return painting;
+// };
+const fetchPaintings = async () => {
+  const response = await fetch('http://localhost:8000/paintings');
+  const paintings = await response.json();
+  console.log(paintings.map((x) => x.title));
+
+  return paintings;
+};
+
 const InfoPage = () => {
   const { id } = useParams();
   // const { infoItems } = React.useContext(InfoContext);
   const [painting, setPainting] = React.useState('');
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    fetchPaintings();
+  });
+
   return (
     <>
+      <Box mt="200px">kkk</Box>
       {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(infoItems, null, 4)}</Box> */}
       <Box
         key={id}
@@ -76,9 +95,20 @@ const InfoPage = () => {
               {id}
 
             </Typography>
-            <Typography variant="h6" component="div">Autorius:</Typography>
-            <Typography variant="h6" component="div">Autorių teisės:</Typography>
-            <Typography variant="h6" component="div">Dydis:</Typography>
+            <Typography variant="h6" component="div">
+              Autorius:
+
+            </Typography>
+            <Typography variant="h6" component="div">
+              Autorių teisės:
+            </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+            >
+              Dydis:
+
+            </Typography>
             <Typography variant="h6" component="div">Kategorija:</Typography>
             <Typography
               variant="h6"

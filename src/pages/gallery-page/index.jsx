@@ -43,7 +43,7 @@ const GalleryPage = () => {
   return (
     <Box sx={(theme) => ({ background: theme.palette.secondary.main })}>
       <Box sx={{
-        display: 'flex', gap: { xs: 4, xl: 0 }, pt: 11, px: 2,
+        display: 'flex', gap: { xs: 4, xl: 0 }, pt: 11, pb: 4, px: 2,
       }}
       >
         <Filters drawerWidth={drawerWidth} />
@@ -70,6 +70,7 @@ const GalleryPage = () => {
                 liked={liked}
                 updatePainting={handleUpdatePainting}
               />
+              {title}
             </Grid>
           ))}
         </Grid>

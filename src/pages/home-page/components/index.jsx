@@ -11,6 +11,7 @@ export const Background = styled(Box)({
   zIndex: 1,
   objectFit: 'cover',
   objectPosition: 'left',
+  backgroundColor: 'black',
 
 });
 

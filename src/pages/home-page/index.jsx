@@ -23,10 +23,9 @@ const HomePage = () => {
   return (
     <>
 
-      <Home.Background
-        component="img"
-        src="/beige6.jpg"
-      />
+      <Home.Background />
+      {/* component="img"
+        src="/beige6.jpg" */}
       <Home.ContentContainer>
         <Home.Content
           component="main"
