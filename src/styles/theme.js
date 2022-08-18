@@ -37,20 +37,16 @@ const baseTheme = createTheme({
   },
 });
 
-const theme = createTheme(baseTheme, {
+const mixinTheme = createTheme(baseTheme, {
   mixins: {
-    toolbarOffset: {
-      mt: 7,
-      [baseTheme.breakpoints.up('xs')]: {
-        '@media (orientation: landscape)': {
-          mt: 6,
-        },
-      },
-      [baseTheme.breakpoints.up('sm')]: {
-        mt: 8,
-      },
+    navbar: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      height: '70px',
+      padding: baseTheme.spacing(0, 4),
     },
   },
 });
 
-export default theme;
+export default mixinTheme;

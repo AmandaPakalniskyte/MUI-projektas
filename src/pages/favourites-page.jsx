@@ -36,11 +36,24 @@ const FavouritesPage = () => {
   return (
 
     <Box sx={(theme) => ({
-      height: '100%', background: theme.palette.secondary.main, px: 10, py: 2,
+      height: '100vh',
+      background: theme.palette.secondary.main,
+      py: {
+        lg: 10,
+        md: 10,
+        sm: 10,
+        xs: 5,
+      },
+      px: {
+        lg: 10,
+        md: 10,
+        sm: 10,
+        xs: 5,
+      },
     })}
     >
       {favouriteItems.length === 0 && (
-        <Typography variant="h4" mt={2} pt={12}>Jūs neturite mėgstamų paveikslų</Typography>
+        <Typography variant="h4">Jūs neturite mėgstamų paveikslų</Typography>
       )}
       {favouriteItems.length > 0 && (
         <Box sx={{

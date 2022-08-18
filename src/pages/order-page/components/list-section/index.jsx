@@ -54,10 +54,10 @@ const ListSection = () => {
         })}
       >
         {cartItems.length > 0 && (
-        <Typography variant="h4" mt={4}>Jūsų krepšelis</Typography>
+        <Typography variant="h4">Jūsų krepšelis</Typography>
         )}
         {cartItems.length === 0 && (
-        <Typography variant="h4" mt={4}>Jūsų krepšelis tuščias</Typography>
+        <Typography variant="h4">Jūsų krepšelis tuščias</Typography>
         )}
 
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>

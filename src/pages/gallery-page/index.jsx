@@ -43,7 +43,7 @@ const GalleryPage = () => {
   return (
     <Box sx={(theme) => ({ background: theme.palette.secondary.main })}>
       <Box sx={{
-        display: 'flex', gap: { xs: 4, xl: 0 }, pt: 11, pb: 4, px: 2,
+        display: 'flex', gap: { xs: 4, xl: 0 }, pt: 3, pb: 3, px: 3,
       }}
       >
         <Filters drawerWidth={drawerWidth} />

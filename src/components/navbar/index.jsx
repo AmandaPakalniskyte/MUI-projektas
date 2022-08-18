@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   AppBar,
   Box,
-  Toolbar,
   IconButton,
   Drawer,
   useMediaQuery,
@@ -15,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
 
 const links = [
-  { text: 'PAGTINDINIS', to: '/' },
+  { text: 'PAGRINDINIS', to: '/' },
   { text: 'KONCEPTAS', to: '/concept' },
   { text: 'PAVEIKSLŲ GALERIJA', to: '/gallery' },
 ];
@@ -36,7 +35,7 @@ const Navbar = () => {
 
   return (
     <AppBar position="fixed">
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Box sx={(theme) => theme.mixins.navbar}>
         <IconButton
           size="large"
           edge="start"
@@ -56,30 +55,30 @@ const Navbar = () => {
         </Box>
 
         {isContracted && (
-          <Drawer
-            anchor="top"
-            open={open}
+        <Drawer
+          anchor="top"
+          open={open}
+        >
+          <Box sx={(theme) => ({
+            ...theme.mixins.toolbarOffset,
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh',
+            backgroundColor: 'secondary.main',
+          })}
           >
-            <Box sx={(theme) => ({
-              ...theme.mixins.toolbarOffset,
-              display: 'flex',
-              flexDirection: 'column',
-              height: '100vh',
-              backgroundColor: 'secondary.main',
-            })}
-            >
-              {links.map(({ text, to }) => (
-                <Nav.Link
-                  key={to}
-                  to={to}
-                  contracted
-                  onClick={() => setOpen(false)}
-                >
-                  {text}
-                </Nav.Link>
-              ))}
-            </Box>
-          </Drawer>
+            {links.map(({ text, to }) => (
+              <Nav.Link
+                key={to}
+                to={to}
+                contracted
+                onClick={() => setOpen(false)}
+              >
+                {text}
+              </Nav.Link>
+            ))}
+          </Box>
+        </Drawer>
         )}
 
         <Box>
@@ -101,7 +100,7 @@ const Navbar = () => {
           </IconButton>
         </Box>
 
-      </Toolbar>
+      </Box>
     </AppBar>
   );
 };

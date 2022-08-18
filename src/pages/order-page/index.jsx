@@ -12,8 +12,18 @@ const OrderPage = () => (
       sm: 'column',
       xs: 'column',
     },
-    pt: 10,
-    px: 10,
+    py: {
+      lg: 10,
+      md: 10,
+      sm: 10,
+      xs: 5,
+    },
+    px: {
+      lg: 10,
+      md: 10,
+      sm: 10,
+      xs: 5,
+    },
     height: '100vh',
     background: theme.palette.secondary.main,
   })}

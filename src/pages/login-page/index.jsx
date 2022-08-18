@@ -6,7 +6,6 @@ import {
   Box,
   Button,
 } from '@mui/material';
-import SecurityIcon from '@mui/icons-material/Security';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -44,73 +43,82 @@ const LoginPage = () => {
   });
 
   return (
-    <Paper elevation={3} sx={{ p: 5, width: 400 }}>
+    <Box sx={(theme) => ({
+      display: 'flex',
+      justifyContent: 'center',
+      py: {
+        lg: 10,
+        md: 10,
+        sm: 10,
+        xs: 5,
+      },
+      px: {
+        lg: 10,
+        md: 10,
+        sm: 10,
+        xs: 5,
+      },
+      height: '100vh',
+      background: theme.palette.secondary.main,
+    })}
+    >
       <Paper sx={{
-        position: 'fixed',
-        top: 300,
-        left: 20,
-        width: 400,
-        p: 3,
+        p: 5,
+        height: '400px',
+        width: {
+          lg: '500px',
+          md: '500px',
+          sm: '500px',
+          xs: '300px',
+        },
       }}
       >
-        <Typography variant="h5">Formik state</Typography>
-        <Box component="pre">
-          {JSON.stringify({
-            values,
-            errors,
-            touched,
-            dirty,
-            isValid,
-          }, null, 4)}
+        <Box
+          component="form"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 5,
+          }}
+          onSubmit={handleSubmit}
+        >
+          <Typography component="h1" variant="h4">Prisijungimas</Typography>
+          <TextField
+            name="email"
+            label="El. paštas"
+            type="email"
+            variant="filled"
+            fullWidth
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.email && Boolean(errors.email)}
+            helperText={touched.email && errors.email}
+          />
+          <TextField
+            name="password"
+            label="Slaptažodis"
+            type="password"
+            variant="filled"
+            fullWidth
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.password && Boolean(errors.password)}
+            helperText={touched.password && errors.password}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            disabled={!dirty || !isValid}
+          >
+            Prisijungti
+          </Button>
         </Box>
       </Paper>
-
-      <Box
-        component="form"
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 5,
-        }}
-        onSubmit={handleSubmit}
-      >
-        <SecurityIcon sx={{ fontSize: 50, color: 'primary.main' }} />
-        <Typography component="h1" variant="h4">Prisijungimas</Typography>
-        <TextField
-          name="email"
-          label="El. paštas"
-          type="email"
-          variant="filled"
-          fullWidth
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={touched.email && Boolean(errors.email)}
-          helperText={touched.email && errors.email}
-        />
-        <TextField
-          name="password"
-          label="Slaptažodis"
-          type="password"
-          variant="filled"
-          fullWidth
-          value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={touched.password && Boolean(errors.password)}
-          helperText={touched.password && errors.password}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          size="large"
-          disabled={!dirty || !isValid}
-        >
-          Prisijungti
-        </Button>
-      </Box>
-    </Paper>
+    </Box>
   );
 };
 

@@ -1,157 +1,79 @@
 import * as React from 'react';
 import {
-  Box, Typography, Grid,
+  Box, Typography,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
+// import { useNavigate } from 'react-router-dom';
+// import { styled } from '@mui/material/styles';
 
-import * as Home from './components';
+// import * as Home from './components';
 
-const Item = styled(Box)(({ theme }) => ({
+// const Item = styled(Box)(({ theme }) => ({
 
-  ':hover': {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
-    cursor: 'pointer',
-  },
+//   ':hover': {
+//     backgroundColor: theme.palette.primary.main,
+//     color: theme.palette.common.white,
+//     cursor: 'pointer',
+//   },
 
-}));
+// }));
 
-const HomePage = () => {
-  const navigate = useNavigate();
+const HomePage = () => (
+  <Box sx={() => ({
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    height: '100vh',
+    width: '100%',
+    // zIndex: 1,
+    backgroundColor: 'black',
+    p: 10,
 
-  return (
-    <>
+  })}
+  >
+    <Box
+      height="500px"
+      width="700px"
+      // top={0}
+      // left={0}
+      component="img"
+      src="/face2.jpg"
+      // zIndex="9000"
+      // objectFit="scale-down"
+      objectPosition="left"
+      position="relative"
 
-      <Home.Background />
-      {/* component="img"
-        src="/beige6.jpg" */}
-      <Home.ContentContainer>
-        <Home.Content
-          component="main"
-          sx={(theme) => ({
-            width: {
-              lg: '60vw',
-              md: '70vw',
-              sm: '80vw',
-              xs: '85vw',
-            },
-            mt: '15vh',
-            mb: 'auto',
-            // padding: 5,
-            background: theme.palette.secondary.opaque,
-            color: theme.palette.primary.main,
-            borderRadius: 1,
-          })}
-        >
-          <Typography
-            component="h1"
-            textAlign="center"
-            sx={{
-              fontSize: {
-                lg: 40,
-                sm: 30,
+    />
+    <Box
+      color="white"
+      position="absolute"
+      height="220px"
+      width="450px"
+      // border="2px solid white"
+      top={350}
+      left={550}
+      zIndex="665"
+      sx={() => ({
+        backgroundColor: 'black',
+        p: 5,
+      })}
+    >
+      <Typography
+        component="h2"
+        variant="h6"
+        sx={() => ({ mb: 2 })}
+      >
+        GALERIJOS KONCEPTAS
 
-              },
+      </Typography>
+      <Typography>
+        Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Delectus
+        architecto illum perferendis mollitia a ducimus
+        minima unde esse nostrum quae voluptates voluptatem iusto
+      </Typography>
 
-            }}
-          >
-            PAVEIKSLŲ REPRODUKCIJŲ GALERIJA
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              textAlign: 'center',
-              fontSize: {
-                lg: 23,
-                md: 15,
-                sm: 15,
+    </Box>
+  </Box>
 
-                xs: 13,
-
-              },
-            }}
-          >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Harum tempora explicabo nostrum
-            accusantium dolor dolores illo minus suscipit aliquam, inventore voluptate consectetur
-            omnis labore, laboriosam accusamus! Deserunt mollitia doloribus laboriosam enim ut,
-            numquam cumque quisquam tenetur maiores officiis autem necessitatibus magnam voluptate
-            ipsa eveniet sequi neque in porro rem facere!
-          </Typography>
-          <Box>
-            <Grid container flexDirection="column" alignItems="center" sx={{ width: '100%', gap: 4 }}>
-              <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/concept')}>
-                <Item sx={(theme) => ({
-                  height: {
-                    lg: 120,
-                    md: 100,
-                    sm: 90,
-                    xs: 80,
-                  },
-                  width: 300,
-                  background: theme.palette.secondary.main,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 1,
-                })}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textAlign: 'center',
-                      fontSize: {
-                        lg: 25,
-                        xs: 15,
-
-                      },
-                    }}
-                  >
-                    KONCEPTAS
-
-                  </Typography>
-                </Item>
-              </Grid>
-              <Grid item xs={12} sx={{ textAlign: 'center' }} onClick={() => navigate('/gallery')}>
-                <Item sx={(theme) => ({
-                  height: {
-                    lg: 120,
-                    md: 100,
-                    sm: 90,
-                    xs: 80,
-                  },
-                  width: 300,
-                  background: theme.palette.secondary.main,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 1,
-                })}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textAlign: 'center',
-                      fontSize: {
-                        lg: 25,
-                        xs: 15,
-
-                      },
-                    }}
-                  >
-                    PAVEIKSLŲ GALERIJA
-
-                  </Typography>
-                </Item>
-              </Grid>
-            </Grid>
-          </Box>
-        </Home.Content>
-      </Home.ContentContainer>
-    </>
-
-  );
-};
-
+);
 export default HomePage;
