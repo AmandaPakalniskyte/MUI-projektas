@@ -132,6 +132,31 @@ const HomePage = () => (
           minima unde esse nostrum quae voluptates voluptatem
         </Typography>
       </Box>
+      <Box
+        textAlign="right"
+        color="white"
+        position="absolute"
+        sx={() => ({
+          top: {
+            lg: 90,
+            md: 140,
+            sm: 185,
+            xs: 185,
+          },
+          right: {
+            lg: 85,
+            md: 85,
+            sm: '0%',
+            xs: '0%',
+          },
+        })}
+      >
+        <Typography variant="h1">PAVEI</Typography>
+        <Typography variant="h1">KSLŲ</Typography>
+        <Typography variant="h1">REPRO</Typography>
+        <Typography variant="h1">DUKCIJŲ</Typography>
+
+      </Box>
     </Box>
     <Box display="flex" justifyContent="right" mt={6}>
       <Box
@@ -222,6 +247,29 @@ const HomePage = () => (
           architecto illum perferendis mollitia a ducimus
           minima unde esse nostrum quae voluptates voluptatem
         </Typography>
+      </Box>
+      <Box
+        textAlign="left"
+        color="white"
+        position="absolute"
+        sx={() => ({
+          top: {
+            lg: 590,
+            md: 215,
+            sm: 185,
+            xs: 185,
+          },
+          left: {
+            lg: 85,
+            md: '20%',
+            sm: '0%',
+            xs: '0%',
+          },
+        })}
+      >
+        <Typography variant="h1">GA</Typography>
+        <Typography variant="h1">LER</Typography>
+        <Typography variant="h1">IJA</Typography>
       </Box>
     </Box>
   </Box>
