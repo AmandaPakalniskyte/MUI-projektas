@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 const StyledButton = styled(Button)(() => ({
 
@@ -36,8 +37,12 @@ const paymentOptions = [
 ];
 
 const ContactPage = () => {
-  const [fullname, setFullname] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [surname, setSurname] = React.useState('');
   const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = React.useState('');
+  const [birthday, setBirthday] = React.useState('');
   const [street, setStreet] = React.useState('');
   const [city, setCity] = React.useState('');
   const [delivery, setDelivery] = React.useState(null);
@@ -109,15 +114,6 @@ const ContactPage = () => {
           <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PIRKĖJO DUOMENYS</Divider>
           <TextField
             sx={(theme) => ({ background: theme.palette.secondary.main })}
-            name="fullname"
-            label="Vardas ir pavardė"
-            variant="filled"
-            fullWidth
-            onChange={(event) => setFullname(event.target.value)}
-            value={fullname}
-          />
-          <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="email"
             type="email"
             label="El. paštas"
@@ -125,6 +121,59 @@ const ContactPage = () => {
             onChange={(event) => setEmail(event.target.value)}
             value={email}
             fullWidth
+          />
+          <TextField
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
+            name="password"
+            type="password"
+            label="Slaptažodis"
+            variant="filled"
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
+            fullWidth
+          />
+          <TextField
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
+            name="passwordConfirmation"
+            type="passwordConfirmation"
+            label="Pakartokite slaptažodį"
+            variant="filled"
+            onChange={(event) => setPasswordConfirmation(event.target.value)}
+            value={passwordConfirmation}
+            fullWidth
+          />
+          <TextField
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
+            name="name"
+            label="Vardas"
+            variant="filled"
+            fullWidth
+            onChange={(event) => setName(event.target.value)}
+            value={name}
+          />
+          <TextField
+            sx={(theme) => ({ background: theme.palette.secondary.main })}
+            name="surname"
+            label="Pavardė"
+            variant="filled"
+            fullWidth
+            onChange={(event) => setSurname(event.target.value)}
+            value={surname}
+          />
+          <DesktopDatePicker
+            inputFormat="yyyy/MM/dd"
+            renderInput={(params) => (
+              <TextField
+          // eslint-disable-next-line react/jsx-props-no-spreading
+                {...params}
+                name="birthday"
+                label="Gimimo data"
+                variant="filled"
+                fullWidth
+                onChange={(event) => setBirthday(event.target.value)}
+                value={birthday}
+              />
+            )}
           />
           <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>ADRESAS</Divider>
           <TextField
