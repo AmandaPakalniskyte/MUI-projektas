@@ -1,40 +1,41 @@
 import * as React from 'react';
 import { Box, Grid } from '@mui/material';
 import { GalleryCard, Filters } from './components';
+import PaintingService from '../../services/painting-service';
 
 const drawerWidth = 280;
 
-const updatePainting = async ({ id, ...updateProps }) => {
-  const response = await fetch(`http://localhost:8000/paintings/${id}`, {
-    method: 'PATCH',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updateProps),
-  });
-  const responseData = await response.json();
+// const updatePainting = async ({ id, ...updateProps }) => {
+//   const response = await fetch(`http://localhost:8000/paintings/${id}`, {
+//     method: 'PATCH',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(updateProps),
+//   });
+//   const responseData = await response.json();
 
-  return responseData;
-};
+//   return responseData;
+// };
 
-const fetchAllPaintings = async () => {
-  const response = await fetch('http://localhost:8000/paintings');
-  const paintings = await response.json();
+// const fetchAllPaintings = async () => {
+//   const response = await fetch('http://localhost:8000/paintings');
+//   const paintings = await response.json();
 
-  return paintings;
-};
+//   return paintings;
+// };
 
 const GalleryPage = () => {
   const [paintings, setPaintings] = React.useState([]);
 
   const handleFetchPaintings = async () => {
-    const fetchedPaintings = await fetchAllPaintings();
+    const fetchedPaintings = await PaintingService.fetchAll();
     setPaintings(fetchedPaintings);
   };
 
   const handleUpdatePainting = async (props) => {
-    await updatePainting(props);
+    await PaintingService.update(props);
     await handleFetchPaintings();
   };
 
@@ -53,10 +54,10 @@ const GalleryPage = () => {
             title,
             description,
             img,
-            category,
             price,
-            dimensions,
+            sizeId,
             liked,
+            size,
           }) => (
             <Grid key={id} item xs={12} sm={6} md={4} xl={3}>
               <GalleryCard
@@ -64,10 +65,10 @@ const GalleryPage = () => {
                 title={title}
                 description={description}
                 img={img}
-                category={category}
                 price={price}
-                dimensions={dimensions}
+                sizeId={sizeId}
                 liked={liked}
+                size={size}
                 updatePainting={handleUpdatePainting}
               />
               {title}
