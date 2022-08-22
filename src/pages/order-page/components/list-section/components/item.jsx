@@ -24,7 +24,7 @@ const Item = ({
     alignItems="center"
     my={2}
     pl={2}
-    sx={(theme) => ({ borderRadius: 1, height: '100px', background: theme.palette.secondary.opaque })}
+    sx={(theme) => ({ borderRadius: 1, height: '100px', background: theme.palette.common.white })}
   >
     <Grid item xs={2} width="17%">
       {/* <Box width="30px" height="30px" src={img} /> */}

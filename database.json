@@ -8,7 +8,7 @@
       "img": "/bold.jpg",
       "price": "500",
       "dimensions": "60 x 80",
-      "liked": true
+      "liked": false
     },
     {
       "id": "D23A657F-CBEC-9639-2E85-7CA56B098603",
@@ -18,7 +18,7 @@
       "img": "/chaos.jpg",
       "price": "100",
       "dimensions": "100 x 100",
-      "liked": false
+      "liked": true
     },
     {
       "id": "12A4CD9E-F969-7106-0E70-A8214ED12111",

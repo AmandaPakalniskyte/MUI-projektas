@@ -16,10 +16,20 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
+const StyledInsideButton = styled(Button)(() => ({
+
+  ':hover': {
+    transform: 'scale(1.2)',
+  },
+
+}));
+
 const StyledButton = styled(Button)(() => ({
 
   ':hover': {
     transform: 'scale(1.2)',
+    backgroundColor: 'white',
+    color: 'black',
   },
 
 }));
@@ -64,23 +74,26 @@ const ContactPage = () => {
         sm: 'column',
         xs: 'column',
       },
-      py: 10,
+      py: 8,
       px: 10,
       height: '100%',
-      background: theme.palette.secondary.main,
+      background: theme.palette.primary.main,
     })}
     >
       <Box>
-        <Button
+        <StyledButton
           width="100%"
           size="large"
           variant="contained"
           onClick={() => navigate('/order')}
-          sx={(theme) => ({ color: theme.palette.primary.contrastText })}
+          sx={(theme) => ({
+            backgroundColor: theme.palette.primary.contrastText,
+            color: theme.palette.primary.main,
+          })}
         >
 
           Grįžti į krepželį
-        </Button>
+        </StyledButton>
       </Box>
       <Paper
         elevation={3}
@@ -96,7 +109,7 @@ const ContactPage = () => {
             xs: '100%',
           },
           mx: 'auto',
-          background: theme.palette.secondary.opaque,
+          background: theme.palette.common.white,
           color: theme.palette.primary.main,
         })}
 
@@ -113,7 +126,6 @@ const ContactPage = () => {
 
           <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PIRKĖJO DUOMENYS</Divider>
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="email"
             type="email"
             label="El. paštas"
@@ -123,7 +135,6 @@ const ContactPage = () => {
             fullWidth
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="password"
             type="password"
             label="Slaptažodis"
@@ -133,7 +144,6 @@ const ContactPage = () => {
             fullWidth
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="passwordConfirmation"
             type="passwordConfirmation"
             label="Pakartokite slaptažodį"
@@ -143,7 +153,6 @@ const ContactPage = () => {
             fullWidth
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="name"
             label="Vardas"
             variant="filled"
@@ -152,7 +161,6 @@ const ContactPage = () => {
             value={name}
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="surname"
             label="Pavardė"
             variant="filled"
@@ -177,7 +185,6 @@ const ContactPage = () => {
           />
           <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>ADRESAS</Divider>
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="street"
             label="Gatvė ir namo numeris"
             variant="filled"
@@ -186,7 +193,6 @@ const ContactPage = () => {
             fullWidth
           />
           <TextField
-            sx={(theme) => ({ background: theme.palette.secondary.main })}
             name="city"
             label="Miestas"
             variant="filled"
@@ -198,7 +204,6 @@ const ContactPage = () => {
           <FormControl sx={{ width: '100%' }}>
             <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PRISTATYMO BŪDAS</Divider>
             <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.main })}
               name="delivery"
               value={delivery}
               onChange={(_, newDelivery) => setDelivery(newDelivery)}
@@ -210,7 +215,7 @@ const ContactPage = () => {
             </RadioGroup>
           </FormControl>
           <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>MOKĖJIMO BŪDAS</Divider>
+            <Divider textAlign="left" sx={() => ({ width: '100%' })}>MOKĖJIMO BŪDAS</Divider>
             <RadioGroup
               sx={(theme) => ({ color: theme.palette.primary.main })}
               name="payment"
@@ -227,7 +232,6 @@ const ContactPage = () => {
             <FormControlLabel
               control={(
                 <Checkbox
-                  sx={(theme) => ({ color: theme.palette.primary.main })}
                   checked={consent}
                   onChange={(_, newConsent) => setConsent(newConsent)}
                 />
@@ -235,7 +239,7 @@ const ContactPage = () => {
               label="Sutinku su asmens duomenų tvarkymo politika"
             />
           </Box>
-          <StyledButton
+          <StyledInsideButton
             type="submit"
             variant="contained"
             size="large"
@@ -246,7 +250,7 @@ const ContactPage = () => {
           >
             Pateikti užsakymą
 
-          </StyledButton>
+          </StyledInsideButton>
         </Box>
       </Paper>
 

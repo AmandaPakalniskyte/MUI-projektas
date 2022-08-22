@@ -41,7 +41,7 @@ const GalleryPage = () => {
   React.useEffect(() => { handleFetchPaintings(); }, []);
 
   return (
-    <Box sx={(theme) => ({ background: theme.palette.secondary.main })}>
+    <Box sx={(theme) => ({ background: theme.palette.primary.main })}>
       <Box sx={{
         display: 'flex', gap: { xs: 4, xl: 0 }, pt: 3, pb: 3, px: 3,
       }}

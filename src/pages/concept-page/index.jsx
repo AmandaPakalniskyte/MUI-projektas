@@ -8,10 +8,9 @@ const ConceptPage = () => (
   <>
     {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(infoItems, null, 4)}</Box> */}
     <Box
-      pt={12}
-      pb={8}
+      py={8}
       height="100%"
-      sx={(theme) => ({ background: theme.palette.secondary.main })}
+      sx={(theme) => ({ background: theme.palette.primary.main })}
     >
       {/* <Box height="50px">{id}</Box> */}
       <Box sx={(theme) => ({

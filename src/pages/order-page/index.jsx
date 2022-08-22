@@ -25,7 +25,7 @@ const OrderPage = () => (
       xs: 5,
     },
     height: '100vh',
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
   })}
   >
     <ListSection />

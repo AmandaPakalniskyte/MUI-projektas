@@ -44,8 +44,8 @@ export const Link = styled(NavLink, {
       },
 
       ':hover': {
-        backgroundColor: primary.dark,
-        color: common.white,
+        backgroundColor: common.white,
+        color: primary.dark,
       },
     };
 });

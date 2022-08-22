@@ -18,12 +18,14 @@ import {
 // }));
 
 const HomePage = () => (
-  <Box sx={() => ({
+  <Box sx={(theme) => ({
     display: 'flex',
     flexDirection: 'column',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     height: '100vh',
     width: '100%',
-    backgroundColor: '#141414',
+    backgroundColor: theme.palette.primary.main,
     py: {
       lg: 10,
       md: 10,
@@ -68,8 +70,8 @@ const HomePage = () => (
         color="white"
         position="absolute"
         zIndex="665"
-        sx={() => ({
-          backgroundColor: '#141414',
+        sx={(theme) => ({
+          backgroundColor: theme.palette.primary.main,
           p: {
             lg: 5,
             md: 5,
@@ -184,8 +186,8 @@ const HomePage = () => (
         color="white"
         position="absolute"
         zIndex="665"
-        sx={() => ({
-          backgroundColor: '#141414',
+        sx={(theme) => ({
+          backgroundColor: theme.palette.primary.main,
           p: {
             lg: 5,
             md: 5,

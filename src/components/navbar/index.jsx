@@ -34,7 +34,7 @@ const Navbar = () => {
   }, [isContracted]);
 
   return (
-    <AppBar position="fixed">
+    <AppBar elevation={0} position="fixed">
       <Box sx={(theme) => theme.mixins.navbar}>
         <IconButton
           size="large"
@@ -64,7 +64,7 @@ const Navbar = () => {
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',
-            backgroundColor: 'secondary.main',
+            backgroundColor: 'primary.main',
           })}
           >
             {links.map(({ text, to }) => (
