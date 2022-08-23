@@ -140,12 +140,14 @@ const HomePage = () => (
         position="absolute"
         sx={() => ({
           top: {
-            lg: 90,
+            xl: 90,
+            lg: 140,
             md: 140,
             sm: 185,
             xs: 185,
           },
           right: {
+            xl: 85,
             lg: 85,
             md: 85,
             sm: '0%',
@@ -153,10 +155,10 @@ const HomePage = () => (
           },
         })}
       >
-        <Typography variant="h1">PAVEI</Typography>
-        <Typography variant="h1">KSLŲ</Typography>
-        <Typography variant="h1">REPRO</Typography>
-        <Typography variant="h1">DUKCIJŲ</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>PAVEI</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>KSLŲ</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>REPRO</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>DUKCIJŲ</Typography>
 
       </Box>
     </Box>
@@ -269,9 +271,9 @@ const HomePage = () => (
           },
         })}
       >
-        <Typography variant="h1">GA</Typography>
-        <Typography variant="h1">LER</Typography>
-        <Typography variant="h1">IJA</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>GA</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>LER</Typography>
+        <Typography sx={{ typography: { xl: 'h1', lg: 'h2' } }}>IJA</Typography>
       </Box>
     </Box>
   </Box>

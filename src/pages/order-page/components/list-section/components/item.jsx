@@ -12,7 +12,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Item = ({
   img,
   title,
-  sizeId,
+  size,
   count,
   setCount,
   price,
@@ -41,7 +41,7 @@ const Item = ({
       <Box>{title}</Box>
     </Grid>
     <Grid item xs={2} width="17%">
-      <Box>{sizeId}</Box>
+      <Box>{size}</Box>
     </Grid>
     <Grid item xs={2} width="17%">
       <Box sx={{ display: 'flex', ml: 1 }}>

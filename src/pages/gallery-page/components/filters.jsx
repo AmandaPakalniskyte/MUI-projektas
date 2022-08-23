@@ -22,7 +22,7 @@ const Filters = ({ drawerWidth }) => {
   const [sizes, setSizes] = React.useState([]);
   const [colors, setColors] = React.useState([]);
 
-  const [priceRange, setPriceRange] = React.useState([2, 25]);
+  const [priceRange, setPriceRange] = React.useState([0, 200]);
   const [category, setCategory] = React.useState(null);
   const [selectedSizes, setSelectedSizes] = React.useState([]);
   const [selectedColors, setSelectedColors] = React.useState([]);

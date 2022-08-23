@@ -21,7 +21,7 @@ const links = [
   { text: 'REGISTRUOTIS', to: '/register' },
 ];
 
-const expandBr = 'sm';
+const expandBr = 'xl';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -66,7 +66,8 @@ const Navbar = () => {
             display: 'flex',
             flexDirection: 'column',
             height: '100vh',
-            backgroundColor: 'primary.main',
+            mt: 10,
+            backgroundColor: 'common.white',
           })}
           >
             {links.map(({ text, to }) => (
