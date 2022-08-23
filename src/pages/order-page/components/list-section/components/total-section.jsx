@@ -79,6 +79,19 @@ const TotalSection = ({ total }) => {
               width="100%"
               size="large"
               variant="contained"
+              onClick={() => navigate('/register')}
+              sx={(theme) => ({
+                backgroundColor: theme.palette.common.white,
+                color: theme.palette.primary.main,
+              })}
+            >
+
+              Registruotis ir pirkti
+            </StyledButton>
+            <StyledButton
+              width="100%"
+              size="large"
+              variant="contained"
               onClick={() => navigate('/contact')}
               sx={(theme) => ({
                 backgroundColor: theme.palette.common.white,

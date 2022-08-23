@@ -9,6 +9,7 @@ import OrderPage from '../pages/order-page';
 import FavouritesPage from '../pages/favourites-page';
 import ContactPage from '../pages/contact-page';
 import LoginPage from '../pages/login-page';
+import RegisterPage from '../pages/register-page';
 import ErrorPage from '../pages/error-page';
 
 const PageRoutes = () => (
@@ -20,6 +21,7 @@ const PageRoutes = () => (
       <Route path="/favourites" element={<FavouritesPage />} />
       <Route path="/order" element={<OrderPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/info/:id" element={<InfoPage />} />
       <Route path="*" element={<ErrorPage />} />

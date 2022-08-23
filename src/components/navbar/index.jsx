@@ -17,6 +17,8 @@ const links = [
   { text: 'PAGRINDINIS', to: '/' },
   { text: 'KONCEPTAS', to: '/concept' },
   { text: 'PAVEIKSLŲ GALERIJA', to: '/gallery' },
+  { text: 'PRISIJUNGTI', to: '/login' },
+  { text: 'REGISTRUOTIS', to: '/register' },
 ];
 
 const expandBr = 'sm';

@@ -65,15 +65,18 @@ const ListSection = () => {
             id,
             img,
             title,
-            dimensions,
+            size,
+            sizeId,
             price,
             count,
           }) => (
             <Item
-              key={id}
+              // key={id}
+              id={id}
               img={img}
               title={title}
-              dimensions={dimensions}
+              sizeId={sizeId}
+              size={size}
               price={price}
               count={count}
               setCount={(newCount) => addToCart({ id, count: newCount })}

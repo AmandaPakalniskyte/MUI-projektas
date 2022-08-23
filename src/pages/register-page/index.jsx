@@ -4,19 +4,15 @@ import {
   TextField,
   Paper,
   Button,
-  FormControl,
-  RadioGroup,
   FormControlLabel,
-  Radio,
-  Divider,
   Checkbox,
   Typography,
   styled,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import moment from 'moment';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 const StyledInsideButton = styled(Button)(() => ({
 
@@ -26,37 +22,20 @@ const StyledInsideButton = styled(Button)(() => ({
 
 }));
 
-const StyledButton = styled(Button)(() => ({
-
-  ':hover': {
-    transform: 'scale(1.2)',
-    backgroundColor: 'white',
-    color: 'black',
-  },
-
-}));
-
-const deliveryOptions = [
-  { value: 'home', label: 'Į namus' },
-  { value: 'office', label: 'Į mūsų parduotuvę' },
-  { value: 'post', label: 'Į paštomatą' },
-];
-
-const paymentOptions = [
-  { value: 'card', label: 'Banko kortele' },
-  { value: 'transfer', label: 'Mokėjimo pavedimu' },
-  { value: 'paypal', label: 'PayPal' },
-];
+const dateNow = moment(new Date());
 
 const initialValues = {
   email: '',
   emailConfirmation: '',
+  password: '',
+  passwordConfirmation: '',
   firstName: '',
   surname: '',
   street: '',
   houseNumber: '',
   postCode: '',
   city: '',
+  birthdate: dateNow,
 };
 
 const validationSchema = yup.object({
@@ -66,6 +45,16 @@ const validationSchema = yup.object({
   emailConfirmation: yup.string()
     .required('Privaloma')
     .oneOf([yup.ref('email')], 'El. paštas nesutampa'),
+  password: yup.string()
+    .required('Privaloma')
+    .min(8, 'Mažiausiai 8 simboliai')
+    .matches(/[a-z]/, 'Bent viena mažoji raidė')
+    .matches(/[A-Z]/, 'Bent viena didžioji raidė')
+    .matches(/\d/, 'Bent vienas skaičius')
+    .matches(/\W/, 'Bent vienas specialus simbolis'),
+  passwordConfirmation: yup.string()
+    .required('Privaloma')
+    .oneOf([yup.ref('password')], 'Slaptažodžiai nesutampa'),
   firstName: yup.string()
     .required('Privaloma')
     .matches(/^[a-ząčęėįšųūž ]+$/i, 'Tik raidės ir tarpai')
@@ -96,16 +85,12 @@ const validationSchema = yup.object({
     .matches(/^\d+$/, 'Tik skaičiai')
     .min(4, 'Mažiausiai 4 simboliai')
     .max(8, 'Daugiausiai 8 simboliai'),
+  birthdate: yup.date('Neteisingas datos formatas, pateikite formatu: YYYY-MM-DD')
+    .max(dateNow, 'Negalite pasirinkti ateities datos'),
 });
 
-const ContactPage = () => {
-  const [delivery, setDelivery] = React.useState(null);
+const RegisterPage = () => {
   const [consent, setConsent] = React.useState(true);
-  const [payment, setPayment] = React.useState(null);
-
-  const navigate = useNavigate();
-
-  const [show, setShow] = useState(false);
 
   const onSubmit = (values) => {
     console.log('įvestos reikšmės');
@@ -114,7 +99,7 @@ const ContactPage = () => {
 
   const {
     values, errors, touched, dirty, isValid,
-    handleChange, handleBlur, handleSubmit,
+    handleChange, handleBlur, handleSubmit, setFieldValue, setFieldTouched,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -132,27 +117,22 @@ const ContactPage = () => {
         sm: 'column',
         xs: 'column',
       },
-      py: 8,
-      px: 10,
+      py: {
+        lg: 10,
+        md: 10,
+        sm: 5,
+        xs: 5,
+      },
+      px: {
+        lg: 10,
+        md: 10,
+        sm: 5,
+        xs: 5,
+      },
       height: '100%',
       background: theme.palette.primary.main,
     })}
     >
-      <Box>
-        <StyledButton
-          width="100%"
-          size="large"
-          variant="contained"
-          onClick={() => navigate('/order')}
-          sx={(theme) => ({
-            backgroundColor: theme.palette.primary.contrastText,
-            color: theme.palette.primary.main,
-          })}
-        >
-
-          Grįžti į krepželį
-        </StyledButton>
-      </Box>
       <Paper
         elevation={3}
         sx={(theme) => ({
@@ -183,7 +163,7 @@ const ContactPage = () => {
           onSubmit={handleSubmit}
           disabled={!dirty || !isValid}
         >
-          <Typography component="h1" variant="h4">Pirkėjo duomenys</Typography>
+          <Typography component="h1" variant="h4">Registracija</Typography>
 
           <TextField
             name="email"
@@ -210,6 +190,30 @@ const ContactPage = () => {
             helperText={touched.emailConfirmation && errors.emailConfirmation}
           />
           <TextField
+            name="password"
+            label="Slaptažodis"
+            type="password"
+            variant="filled"
+            fullWidth
+            onChange={handleChange}
+            value={values.password}
+            onBlur={handleBlur}
+            error={touched.password && Boolean(errors.password)}
+            helperText={touched.password && errors.password}
+          />
+          <TextField
+            name="passwordConfirmation"
+            label="Pakartoti slaptažodį"
+            type="password"
+            variant="filled"
+            fullWidth
+            value={values.passwordConfirmation}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.passwordConfirmation && Boolean(errors.passwordConfirmation)}
+            helperText={touched.passwordConfirmation && errors.passwordConfirmation}
+          />
+          <TextField
             name="firstName"
             label="Vardas"
             type="text"
@@ -232,6 +236,33 @@ const ContactPage = () => {
             onBlur={handleBlur}
             error={touched.surname && Boolean(errors.surname)}
             helperText={touched.surname && errors.surname}
+          />
+
+          <DesktopDatePicker
+            inputFormat="yyyy-MM-DD"
+            disableMaskedInput
+            value={values.birthdate}
+            disableFuture
+            onChange={(momentInstance) => {
+              // eslint-disable-next-line no-underscore-dangle
+              if (momentInstance._isValid) {
+                setFieldTouched('birthdate', true, false);
+                setFieldValue('birthdate', momentInstance, true);
+              }
+            }}
+            renderInput={(params) => (
+              <TextField
+            // eslint-disable-next-line react/jsx-props-no-spreading
+                {...params}
+                name="birthdate"
+                label="Gimimo data"
+                variant="filled"
+                fullWidth
+                onBlur={handleBlur}
+                error={touched.birthdate && Boolean(errors.birthdate)}
+                helperText={touched.birthdate && errors.birthdate}
+              />
+            )}
           />
           <Box display="flex" width="100%" gap={3}>
             <TextField
@@ -286,33 +317,6 @@ const ContactPage = () => {
             />
           </Box>
 
-          <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PRISTATYMO BŪDAS</Divider>
-            <RadioGroup
-              name="delivery"
-              value={delivery}
-              onChange={(_, newDelivery) => setDelivery(newDelivery)}
-              // onClick={() => setShow((prev) => !prev)}
-            >
-              {deliveryOptions.map(({ value, label }) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
-          <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={() => ({ width: '100%' })}>MOKĖJIMO BŪDAS</Divider>
-            <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.main })}
-              name="payment"
-              value={payment}
-              onChange={(_, newPayment) => { setPayment(newPayment); setShow((prev) => !prev); }}
-            >
-              {show && <Box>This is your component</Box>}
-              {paymentOptions.map(({ value, label }) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
           <Box sx={{ alignSelf: 'flex-start' }}>
             <FormControlLabel
               control={(
@@ -334,7 +338,7 @@ const ContactPage = () => {
               color: theme.palette.primary.contrastText,
             })}
           >
-            Pateikti užsakymą
+            Registruotis
 
           </StyledInsideButton>
         </Box>
@@ -344,4 +348,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default RegisterPage;

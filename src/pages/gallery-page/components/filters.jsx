@@ -29,7 +29,7 @@ const Filters = ({ drawerWidth }) => {
 
   React.useEffect(() => {
     (async () => {
-      const [fetchedCategories, fetchedColors, fetchedSizes] = await Promise.all([
+      const [fetchedCategories, fetchedSizes, fetchedColors] = await Promise.all([
         CategoryService.fetchAll(),
         SizeService.fetchAll(),
         ColorService.fetchAll(),
@@ -89,18 +89,17 @@ const Filters = ({ drawerWidth }) => {
           />
           <Divider sx={{ my: 2 }} />
           <CheckboxField
+            label="Spalvos"
+            options={colors}
+            value={selectedColors}
+            onChange={(_, newColors) => setSelectedColors(newColors)}
+          />
+          <Divider sx={{ my: 2 }} />
+          <CheckboxField
             label="Dydžiai"
             options={sizes}
             value={selectedSizes}
             onChange={(_, newSizes) => setSelectedSizes(newSizes)}
-          />
-          <Divider sx={{ my: 2 }} />
-
-          <CheckboxField
-            label="Spalva"
-            options={colors}
-            value={selectedColors}
-            onChange={(_, newColors) => setSelectedColors(newColors)}
           />
         </Box>
       </Drawer>

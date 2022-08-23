@@ -49,13 +49,13 @@ const LoginPage = () => {
       py: {
         lg: 10,
         md: 10,
-        sm: 10,
+        sm: 5,
         xs: 5,
       },
       px: {
         lg: 10,
         md: 10,
-        sm: 10,
+        sm: 5,
         xs: 5,
       },
       height: '100vh',

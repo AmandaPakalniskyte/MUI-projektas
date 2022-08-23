@@ -31,7 +31,7 @@
       "price": "200",
       "sizeId": 3,
       "colorId": 1,
-      "liked": true
+      "liked": false
     },
     {
       "id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
@@ -154,7 +154,7 @@
     },
     {
       "id": "2",
-      "label": "Patelinės"
+      "label": "Pastelinės"
     },
     {
       "id": "3",
