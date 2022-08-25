@@ -8,6 +8,7 @@ import {
   Button,
 } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
+import { useSearchParams } from 'react-router-dom';
 import RangeField from '../../../components/range-field';
 import SelectField from '../../../components/select-field';
 import CheckboxField from '../../../components/checkbox-field';
@@ -15,7 +16,13 @@ import SizeService from '../../../services/size-service';
 import ColorService from '../../../services/color-service';
 import CategoryService from '../../../services/category-service';
 
+const MIN = 39;
+const MAX = 95;
+
 const Filters = ({ drawerWidth }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const [initialSetupDone, setIntialSetupDone] = React.useState(false);
+
   const isExtraLarge = useMediaQuery((theme) => theme.breakpoints.up('xl'));
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [categories, setCategories] = React.useState([]);
@@ -27,6 +34,60 @@ const Filters = ({ drawerWidth }) => {
   const [selectedSizes, setSelectedSizes] = React.useState([]);
   const [selectedColors, setSelectedColors] = React.useState([]);
 
+  const handlePriceRangeChange = (_, [min, max]) => {
+    if (min === MIN) {
+      searchParams.delete('price_gte');
+    } else {
+      searchParams.set('price_gte', min);
+    }
+    if (max === MAX) {
+      searchParams.delete('price_lte');
+    } else {
+      searchParams.set('price_lte', max);
+    }
+
+    setSearchParams(searchParams);
+  };
+
+  const handleCategoryChange = (_, newCategory) => {
+    if (newCategory) {
+      searchParams.set('categoryId', newCategory.id);
+    } else {
+      searchParams.delete('categoryId');
+    }
+
+    setSearchParams(searchParams);
+    setCategory(newCategory);
+  };
+
+  const handleSizeChange = (_, newSizes) => {
+    const ids = newSizes.map((size) => size.id);
+    searchParams.delete('sizeId');
+    ids.forEach((id) => searchParams.append('sizeId', id));
+
+    setSearchParams(searchParams);
+    setSelectedSizes(newSizes);
+  };
+
+  const handleColorChange = (_, newColors) => {
+    const ids = newColors.map((color) => color.id);
+    searchParams.delete('colorId');
+    ids.forEach((id) => searchParams.append('colorId', id));
+
+    setSearchParams(searchParams);
+    setSelectedColors(newColors);
+  };
+
+  // const deleteFilters = () => {
+  //   searchParams.delete('price_gte');
+  //   searchParams.delete('price_lte');
+  //   searchParams.delete('categoryId');
+  //   searchParams.delete('sizeId');
+  //   searchParams.delete('colorId');
+
+  //   setSearchParams(searchParams);
+  // };
+
   React.useEffect(() => {
     (async () => {
       const [fetchedCategories, fetchedSizes, fetchedColors] = await Promise.all([
@@ -34,10 +95,35 @@ const Filters = ({ drawerWidth }) => {
         SizeService.fetchAll(),
         ColorService.fetchAll(),
       ]);
+      const priceMinInit = searchParams.get('price_gte') ?? MIN;
+      const priceMaxInit = searchParams.get('price_lte') ?? MAX;
+      setPriceRange([priceMinInit, priceMaxInit]);
+
+      const categoryId = searchParams.get('categoryId');
+      if (categoryId) {
+        const categoryInit = fetchedCategories.find((cat) => cat.id === categoryId) ?? null;
+        setCategory(categoryInit);
+      }
+
+      const selectedSizesInit = searchParams
+        .getAll('sizeId')
+        .map((id) => fetchedSizes.find((size) => size.id === id))
+        .filter((size) => size !== undefined);
+      setSelectedSizes(selectedSizesInit);
+
+      const selectedColorsInit = searchParams
+        .getAll('colorId')
+        .map((id) => fetchedColors.find((color) => color.id === id))
+        .filter((color) => color !== undefined);
+      setSelectedColors(selectedColorsInit);
+
       setCategories(fetchedCategories);
       setSizes(fetchedSizes);
       setColors(fetchedColors);
+
+      // setIntialSetupDone(true);
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -76,8 +162,9 @@ const Filters = ({ drawerWidth }) => {
             label="Kaina"
             value={priceRange}
             onChange={(_, newPriceRange) => setPriceRange(newPriceRange)}
-            min={0}
-            max={200}
+            onChangeCommitted={handlePriceRangeChange}
+            min={MIN}
+            max={MAX}
           />
 
           <Divider sx={{ my: 2 }} />
@@ -85,23 +172,26 @@ const Filters = ({ drawerWidth }) => {
           <SelectField
             options={categories}
             value={category}
-            onChange={(_, newCategory) => setCategory(newCategory)}
+            onChange={handleCategoryChange}
           />
           <Divider sx={{ my: 2 }} />
           <CheckboxField
             label="Spalvos"
             options={colors}
             value={selectedColors}
-            onChange={(_, newColors) => setSelectedColors(newColors)}
+            onChange={handleColorChange}
           />
           <Divider sx={{ my: 2 }} />
           <CheckboxField
             label="Dydžiai"
             options={sizes}
             value={selectedSizes}
-            onChange={(_, newSizes) => setSelectedSizes(newSizes)}
+            onChange={handleSizeChange}
           />
         </Box>
+        <Button variant="contained" disabled>
+          trinti
+        </Button>
       </Drawer>
     </>
   );

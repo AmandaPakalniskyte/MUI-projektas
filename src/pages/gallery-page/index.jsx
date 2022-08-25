@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, Grid } from '@mui/material';
+import { useSearchParams } from 'react-router-dom';
 import { GalleryCard, Filters } from './components';
 import PaintingService from '../../services/painting-service';
 
@@ -28,18 +29,22 @@ const drawerWidth = 280;
 
 const GalleryPage = () => {
   const [paintings, setPaintings] = React.useState([]);
+  const [searchParams] = useSearchParams();
 
-  const handleFetchPaintings = async () => {
-    const fetchedPaintings = await PaintingService.fetchAll();
+  const handleFetchPaintings = React.useCallback(async () => {
+    const [fetchedPaintings] = await Promise.all([
+      PaintingService.fetchAll(searchParams.toString()),
+    ]);
     setPaintings(fetchedPaintings);
-  };
+  }, [searchParams]);
 
   const handleUpdatePainting = async (props) => {
     await PaintingService.update(props);
     await handleFetchPaintings();
   };
-
-  React.useEffect(() => { handleFetchPaintings(); }, []);
+  React.useEffect(() => {
+    handleFetchPaintings();
+  }, [handleFetchPaintings]);
 
   return (
     <Box sx={(theme) => ({ background: theme.palette.primary.main })}>

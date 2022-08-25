@@ -18,8 +18,9 @@ const StyledButton = styled(Button)(() => ({
 }));
 
 const fetchItem = async (id) => {
-  const response = await fetch(`http://localhost:8000/paintings/${id}`);
+  const response = await fetch(`http://localhost:8000/paintings/${id}?_expand=category&_expand=size&_expand=color`);
   const item = await response.json();
+  console.log(item);
 
   return item;
 };
@@ -48,12 +49,7 @@ const FavouritesPage = () => {
     <Box sx={(theme) => ({
       height: '100vh',
       background: theme.palette.primary.main,
-      py: {
-        lg: 8,
-        md: 8,
-        sm: 8,
-        xs: 5,
-      },
+      py: 5,
       px: {
         lg: 10,
         md: 10,
@@ -78,7 +74,7 @@ const FavouritesPage = () => {
               img,
               category,
               price,
-              dimensions,
+              size,
               liked,
             }) => (
               <Grid key={id} item xs={12} sm={6} md={4} xl={3}>
@@ -89,7 +85,7 @@ const FavouritesPage = () => {
                   img={img}
                   category={category}
                   price={price}
-                  dimensions={dimensions}
+                  size={size}
                   liked={liked}
                 />
               </Grid>

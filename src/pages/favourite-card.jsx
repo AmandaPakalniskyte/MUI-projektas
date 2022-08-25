@@ -35,7 +35,7 @@ const FavouriteCard = ({
   title,
   img,
   description,
-  dimensions,
+  size,
   price,
   liked,
   updatePainting,
@@ -58,7 +58,7 @@ const FavouriteCard = ({
           position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 1000, backgroundColor: 'black', opacity: '0', textAlign: 'center', pt: '45%',
         }}
         >
-          {dimensions}
+          {size.label}
         </Item>
         <Image src={img} sx={{ position: 'absolute', top: 0, left: 0 }} />
       </Box>

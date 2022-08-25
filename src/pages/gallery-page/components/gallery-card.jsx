@@ -13,9 +13,9 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import InfoIcon from '@mui/icons-material/Info';
 import { Image, TypographyLimited } from '../../../components';
 import CartContext from '../../../contexts/cart-context';
 import FavouritesContext from '../../../contexts/favourites-context';
@@ -81,7 +81,7 @@ const GalleryCard = ({
             sx={(theme) => ({ color: theme.palette.primary.main })}
             onClick={() => { navigate(`/info/${id}`); }}
           >
-            <InfoIcon />
+            <VisibilityIcon />
           </IconButton>
         </Box>
         <TypographyLimited variant="body2" color="text.secondary">{description}</TypographyLimited>
