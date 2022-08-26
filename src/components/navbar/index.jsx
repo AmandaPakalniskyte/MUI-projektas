@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Badge,
   AppBar,
   Box,
   IconButton,
@@ -12,6 +13,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
+import CartContext from '../../contexts/cart-context';
 
 const links = [
   { text: 'PAGRINDINIS', to: '/' },
@@ -24,6 +26,7 @@ const links = [
 const expandBr = 'xl';
 
 const Navbar = () => {
+  const { cartItemsCount } = React.useContext(CartContext);
   const navigate = useNavigate();
   const isContracted = useMediaQuery((theme) => theme.breakpoints.down(expandBr));
   const [open, setOpen] = React.useState(false);
@@ -99,7 +102,9 @@ const Navbar = () => {
             color="inherit"
             onClick={() => navigate('/order')}
           >
-            <ShoppingBasketIcon />
+            <Badge badgeContent={cartItemsCount} color="secondary">
+              <ShoppingBasketIcon />
+            </Badge>
           </IconButton>
         </Box>
 
