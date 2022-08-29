@@ -6,27 +6,6 @@ import PaintingService from '../../services/painting-service';
 
 const drawerWidth = 280;
 
-// const updatePainting = async ({ id, ...updateProps }) => {
-//   const response = await fetch(`http://localhost:8000/paintings/${id}`, {
-//     method: 'PATCH',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(updateProps),
-//   });
-//   const responseData = await response.json();
-
-//   return responseData;
-// };
-
-// const fetchAllPaintings = async () => {
-//   const response = await fetch('http://localhost:8000/paintings');
-//   const paintings = await response.json();
-
-//   return paintings;
-// };
-
 const GalleryPage = () => {
   const [paintings, setPaintings] = React.useState([]);
   const [searchParams] = useSearchParams();

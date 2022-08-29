@@ -2,21 +2,18 @@ import * as React from 'react';
 import {
   Box,
   TextField,
-  Paper,
   Button,
-  FormControl,
-  RadioGroup,
   FormControlLabel,
-  Radio,
-  Divider,
   Checkbox,
   Typography,
   styled,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import RegisterFormSection from '../../components/register-form-container';
+import RegisterForm from '../../components/register-form-container/register-form';
+import RadioButtonSection from './radio-button-section';
+import BackToCartButton from '../../components/back-to-cart-button';
 
 const StyledInsideButton = styled(Button)(() => ({
 
@@ -25,28 +22,6 @@ const StyledInsideButton = styled(Button)(() => ({
   },
 
 }));
-
-const StyledButton = styled(Button)(() => ({
-
-  ':hover': {
-    transform: 'scale(1.2)',
-    backgroundColor: 'white',
-    color: 'black',
-  },
-
-}));
-
-const deliveryOptions = [
-  { value: 'home', label: 'Į namus' },
-  { value: 'office', label: 'Į mūsų parduotuvę' },
-  { value: 'post', label: 'Į paštomatą' },
-];
-
-const paymentOptions = [
-  { value: 'card', label: 'Banko kortele' },
-  { value: 'transfer', label: 'Mokėjimo pavedimu' },
-  { value: 'paypal', label: 'PayPal' },
-];
 
 const initialValues = {
   email: '',
@@ -99,13 +74,7 @@ const validationSchema = yup.object({
 });
 
 const ContactPage = () => {
-  const [delivery, setDelivery] = React.useState(null);
   const [consent, setConsent] = React.useState(true);
-  const [payment, setPayment] = React.useState(null);
-
-  const navigate = useNavigate();
-
-  const [show, setShow] = useState(false);
 
   const onSubmit = (values) => {
     console.log('įvestos reikšmės');
@@ -114,7 +83,7 @@ const ContactPage = () => {
 
   const {
     values, errors, touched, dirty, isValid,
-    handleChange, handleBlur, handleSubmit,
+    handleChange, handleBlur,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -122,225 +91,143 @@ const ContactPage = () => {
   });
 
   return (
-    <Box sx={(theme) => ({
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: {
-        xl: 'column',
-        lg: 'column',
-        md: 'column',
-        sm: 'column',
-        xs: 'column',
-      },
-      py: 8,
-      px: 10,
-      height: '100%',
-      background: theme.palette.primary.main,
-    })}
-    >
+    <RegisterFormSection>
       <Box>
-        <StyledButton
-          width="100%"
-          size="large"
+        <BackToCartButton />
+      </Box>
+
+      <RegisterForm>
+        <Typography component="h1" variant="h4">Pirkėjo duomenys</Typography>
+
+        <TextField
+          name="email"
+          label="El. paštas"
+          type="email"
+          variant="filled"
+          fullWidth
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.email && Boolean(errors.email)}
+          helperText={touched.email && errors.email}
+        />
+        <TextField
+          name="emailConfirmation"
+          label="Pakartoti el.paštą"
+          type="email"
+          variant="filled"
+          fullWidth
+          value={values.emailConfirmation}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.emailConfirmation && Boolean(errors.emailConfirmation)}
+          helperText={touched.emailConfirmation && errors.emailConfirmation}
+        />
+        <TextField
+          name="firstName"
+          label="Vardas"
+          type="text"
+          variant="filled"
+          fullWidth
+          value={values.firstName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.firstName && Boolean(errors.firstName)}
+          helperText={touched.firstName && errors.firstName}
+        />
+        <TextField
+          name="surname"
+          label="Pavardė"
+          type="text"
+          variant="filled"
+          fullWidth
+          value={values.surname}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.surname && Boolean(errors.surname)}
+          helperText={touched.surname && errors.surname}
+        />
+        <Box display="flex" width="100%" gap={3}>
+          <TextField
+            name="street"
+            label="Gatvė"
+            type="text"
+            variant="filled"
+            fullWidth
+            value={values.street}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.street && Boolean(errors.street)}
+            helperText={touched.street && errors.street}
+          />
+          <TextField
+            name="houseNumber"
+            label="Namo ir buto numeris (jei yra)"
+            type="text"
+            variant="filled"
+            fullWidth
+            value={values.houseNumber}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.houseNumber && Boolean(errors.houseNumber)}
+            helperText={touched.houseNumber && errors.houseNumber}
+          />
+        </Box>
+        <Box display="flex" width="100%" gap={3}>
+          <TextField
+            name="city"
+            label="Miestas"
+            type="text"
+            variant="filled"
+            fullWidth
+            value={values.city}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.city && Boolean(errors.city)}
+            helperText={touched.city && errors.city}
+          />
+          <TextField
+            name="postCode"
+            label="Pašto kodas"
+            type="text"
+            variant="filled"
+            fullWidth
+            value={values.postCode}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.postCode && Boolean(errors.postCode)}
+            helperText={touched.postCode && errors.postCode}
+          />
+        </Box>
+        <RadioButtonSection />
+
+        <Box sx={{ alignSelf: 'flex-start' }}>
+          <FormControlLabel
+            control={(
+              <Checkbox
+                checked={consent}
+                onChange={(_, newConsent) => setConsent(newConsent)}
+              />
+              )}
+            label="Sutinku su asmens duomenų tvarkymo politika"
+          />
+        </Box>
+        <StyledInsideButton
+          type="submit"
+          disabled={!dirty || !isValid}
           variant="contained"
-          onClick={() => navigate('/order')}
+          size="large"
           sx={(theme) => ({
-            backgroundColor: theme.palette.primary.contrastText,
-            color: theme.palette.primary.main,
+            background: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
           })}
         >
+          Pateikti užsakymą
 
-          Grįžti į krepželį
-        </StyledButton>
-      </Box>
-      <Paper
-        elevation={3}
-        sx={(theme) => ({
-          mt: 2,
-          p: 5,
-          // width: 450,
-          width: {
-            xl: '600px',
-            lg: '500px',
-            md: '100%',
-            sm: '100%',
-            xs: '100%',
-          },
-          mx: 'auto',
-          background: theme.palette.common.white,
-          color: theme.palette.primary.main,
-        })}
+        </StyledInsideButton>
+      </RegisterForm>
 
-      >
-        <Box
-          component="form"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 3,
-          }}
-          onSubmit={handleSubmit}
-          disabled={!dirty || !isValid}
-        >
-          <Typography component="h1" variant="h4">Pirkėjo duomenys</Typography>
-
-          <TextField
-            name="email"
-            label="El. paštas"
-            type="email"
-            variant="filled"
-            fullWidth
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.email && Boolean(errors.email)}
-            helperText={touched.email && errors.email}
-          />
-          <TextField
-            name="emailConfirmation"
-            label="Pakartoti el.paštą"
-            type="email"
-            variant="filled"
-            fullWidth
-            value={values.emailConfirmation}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.emailConfirmation && Boolean(errors.emailConfirmation)}
-            helperText={touched.emailConfirmation && errors.emailConfirmation}
-          />
-          <TextField
-            name="firstName"
-            label="Vardas"
-            type="text"
-            variant="filled"
-            fullWidth
-            value={values.firstName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.firstName && Boolean(errors.firstName)}
-            helperText={touched.firstName && errors.firstName}
-          />
-          <TextField
-            name="surname"
-            label="Pavardė"
-            type="text"
-            variant="filled"
-            fullWidth
-            value={values.surname}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.surname && Boolean(errors.surname)}
-            helperText={touched.surname && errors.surname}
-          />
-          <Box display="flex" width="100%" gap={3}>
-            <TextField
-              name="street"
-              label="Gatvė"
-              type="text"
-              variant="filled"
-              fullWidth
-              value={values.street}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.street && Boolean(errors.street)}
-              helperText={touched.street && errors.street}
-            />
-            <TextField
-              name="houseNumber"
-              label="Namo ir buto numeris (jei yra)"
-              type="text"
-              variant="filled"
-              fullWidth
-              value={values.houseNumber}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.houseNumber && Boolean(errors.houseNumber)}
-              helperText={touched.houseNumber && errors.houseNumber}
-            />
-          </Box>
-          <Box display="flex" width="100%" gap={3}>
-            <TextField
-              name="city"
-              label="Miestas"
-              type="text"
-              variant="filled"
-              fullWidth
-              value={values.city}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.city && Boolean(errors.city)}
-              helperText={touched.city && errors.city}
-            />
-            <TextField
-              name="postCode"
-              label="Pašto kodas"
-              type="text"
-              variant="filled"
-              fullWidth
-              value={values.postCode}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.postCode && Boolean(errors.postCode)}
-              helperText={touched.postCode && errors.postCode}
-            />
-          </Box>
-
-          <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={(theme) => ({ width: '100%', color: theme.palette.primary.main })}>PRISTATYMO BŪDAS</Divider>
-            <RadioGroup
-              name="delivery"
-              value={delivery}
-              onChange={(_, newDelivery) => setDelivery(newDelivery)}
-              // onClick={() => setShow((prev) => !prev)}
-            >
-              {deliveryOptions.map(({ value, label }) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
-          <FormControl sx={{ width: '100%' }}>
-            <Divider textAlign="left" sx={() => ({ width: '100%' })}>MOKĖJIMO BŪDAS</Divider>
-            <RadioGroup
-              sx={(theme) => ({ color: theme.palette.primary.main })}
-              name="payment"
-              value={payment}
-              onChange={(_, newPayment) => { setPayment(newPayment); setShow((prev) => !prev); }}
-            >
-              {show && <Box>This is your component</Box>}
-              {paymentOptions.map(({ value, label }) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-              ))}
-            </RadioGroup>
-          </FormControl>
-          <Box sx={{ alignSelf: 'flex-start' }}>
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  checked={consent}
-                  onChange={(_, newConsent) => setConsent(newConsent)}
-                />
-              )}
-              label="Sutinku su asmens duomenų tvarkymo politika"
-            />
-          </Box>
-          <StyledInsideButton
-            type="submit"
-            disabled={!dirty || !isValid}
-            variant="contained"
-            size="large"
-            sx={(theme) => ({
-              background: theme.palette.primary.main,
-              color: theme.palette.primary.contrastText,
-            })}
-          >
-            Pateikti užsakymą
-
-          </StyledInsideButton>
-        </Box>
-      </Paper>
-
-    </Box>
+    </RegisterFormSection>
   );
 };
 

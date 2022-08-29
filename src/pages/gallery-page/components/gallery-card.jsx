@@ -55,7 +55,16 @@ const GalleryCard = ({
     <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ position: 'relative', width: '100%', pt: '95%' }}>
         <Item sx={{
-          position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 1000, backgroundColor: 'black', opacity: '0', textAlign: 'center', pt: '45%',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          top: 0,
+          left: 0,
+          zIndex: 1000,
+          backgroundColor: 'black',
+          opacity: '0',
+          textAlign: 'center',
+          pt: '45%',
         }}
         >
           {size.label}
@@ -108,7 +117,14 @@ const GalleryCard = ({
             variant="contained"
             size="small"
             sx={{
-              p: 0, height: 48, width: 20, minWidth: 0, borderRadius: 0, borderBottomLeftRadius: 4, borderTopLeftRadius: 4, boxShadow: 'none',
+              p: 0,
+              height: 48,
+              width: 20,
+              minWidth: 0,
+              borderRadius: 0,
+              borderBottomLeftRadius: 4,
+              borderTopLeftRadius: 4,
+              boxShadow: 'none',
             }}
             onClick={() => setCount(count - 1)}
             disabled={count <= 1}
@@ -131,7 +147,14 @@ const GalleryCard = ({
             variant="contained"
             size="small"
             sx={{
-              p: 0, height: 48, width: 20, minWidth: 0, borderRadius: 0, borderBottomRightRadius: 4, borderTopRightRadius: 4, boxShadow: 'none',
+              p: 0,
+              height: 48,
+              width: 20,
+              minWidth: 0,
+              borderRadius: 0,
+              borderBottomRightRadius: 4,
+              borderTopRightRadius: 4,
+              boxShadow: 'none',
             }}
             onClick={() => setCount(count + 1)}
           >
