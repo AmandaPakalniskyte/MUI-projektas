@@ -52,7 +52,10 @@ const GalleryCard = ({
   const { addToFavourites } = React.useContext(FavouritesContext);
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <Card sx={{
+      display: 'flex', flexDirection: 'column', height: '100%', p: 1,
+    }}
+    >
       <Box sx={{ position: 'relative', width: '100%', pt: '95%' }}>
         <Item sx={{
           position: 'absolute',

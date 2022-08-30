@@ -11,7 +11,6 @@ const StyledButton = styled(Button)(() => ({
     backgroundColor: 'white',
     color: 'black',
   },
-
 }));
 
 const BackToCartButton = () => {
@@ -28,7 +27,6 @@ const BackToCartButton = () => {
         color: theme.palette.primary.main,
       })}
     >
-
       Grįžti į krepželį
     </StyledButton>
   );

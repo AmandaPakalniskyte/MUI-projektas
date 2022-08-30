@@ -36,7 +36,10 @@ const TotalSection = ({ total }) => {
     }}
     >
       <Box sx={{
-        display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-start',
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
       }}
       >
         <BackToGalleryButton />
@@ -46,7 +49,10 @@ const TotalSection = ({ total }) => {
         }}
         >
           <Box display="flex" flexDirection="column" gap={2}>
-            <Typography variant="h6" sx={(theme) => ({ color: theme.palette.common.white, fontWeight: 'bold' })}>
+            <Typography
+              variant="h6"
+              sx={(theme) => ({ color: theme.palette.common.white, fontWeight: 'bold' })}
+            >
               Suma:
               {' '}
               {`${total.toFixed(2)} EUR`}

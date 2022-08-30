@@ -25,6 +25,7 @@ const BackgroundBox = ({ children }) => (
     mx: 'auto',
     background: theme.palette.common.white,
     borderRadius: 1,
+    position: 'relative',
   })}
   >
     {children}
