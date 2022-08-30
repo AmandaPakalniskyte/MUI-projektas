@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { Slide } from 'react-slideshow-image';
 import { Image } from '../../components';
 import BackToGalleryButton from '../../components/back-to-galerry-button';
 import BackgroundBox from '../../components/background-box';
 import BackgroundContainer from '../../components/background-container';
+import 'react-slideshow-image/dist/styles.css';
 
 const InfoPage = () => {
   const { id } = useParams();
@@ -23,7 +25,7 @@ const InfoPage = () => {
   return (
     <BackgroundContainer>
       <BackgroundBox>
-        <Image
+        {/* <Image
           src={painting?.imgWall}
           sx={{
             position: 'relative',
@@ -32,20 +34,33 @@ const InfoPage = () => {
             objectFit: 'contain',
             mb: 2,
           }}
-        />
-        {/* <Box height={200} width={200}>
-          {' '}
-          <CardMedia
-            component="img"
-            image={painting?.img}
-            alt=""
-            sx={{
-              top: 60, left: '50%', right: '50%', zIndex: 500, height: '100%', width: '100%',
-            }}
-          />
-
-        </Box> */}
-
+        /> */}
+        <Slide position="relative" height="100px">
+          <Box>
+            <Image
+              src={painting?.imgWall}
+              sx={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                objectFit: 'contain',
+                mb: 2,
+              }}
+            />
+          </Box>
+          <Box>
+            <Image
+              src={painting?.imgWallDark}
+              sx={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                objectFit: 'contain',
+                mb: 2,
+              }}
+            />
+          </Box>
+        </Slide>
         <Typography variant="h6" component="div">
           Autorius:
           {' '}
