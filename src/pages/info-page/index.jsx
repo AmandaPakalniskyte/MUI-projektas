@@ -1,15 +1,14 @@
 import * as React from 'react';
-import {
-  Box, Typography, Button,
-} from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Box, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import { Image } from '../../components';
+import BackToGalleryButton from '../../components/back-to-galerry-button';
+import BackgroundBox from '../../components/background-box';
+import BackgroundContainer from '../../components/background-container';
 
 const InfoPage = () => {
   const { id } = useParams();
   const [painting, setPainting] = React.useState(null);
-  const navigate = useNavigate();
 
   const fetchPainting = async () => {
     const response = await fetch(`http://localhost:8000/paintings/${id}`);
@@ -22,36 +21,8 @@ const InfoPage = () => {
   });
 
   return (
-    <Box
-      py={5}
-      height="100%"
-      sx={(theme) => ({ background: theme.palette.primary.main })}
-    >
-      <Box height="50px" />
-      <Box sx={(theme) => ({
-        py: {
-          lg: '40px',
-          md: '40px',
-          sm: '20px',
-          xs: '20px',
-        },
-        px: {
-          lg: '40px',
-          md: '40px',
-          sm: '20px',
-          xs: '20px',
-        },
-        width: {
-          lg: '60vw',
-          md: '70vw',
-          sm: '80vw',
-          xs: '85vw',
-        },
-        mx: 'auto',
-        background: theme.palette.common.white,
-        borderRadius: 1,
-      })}
-      >
+    <BackgroundContainer>
+      <BackgroundBox>
         <Image
           src="/bold-wall.jpg"
           sx={{
@@ -75,11 +46,9 @@ const InfoPage = () => {
             }}
           >
             {id}
-
           </Typography>
           <Typography variant="h6" component="div">
             Autorius:
-
           </Typography>
           <Typography variant="h6" component="div">
             Pavadinimas:
@@ -105,29 +74,11 @@ const InfoPage = () => {
             }}
           >
             {painting?.description}
-
           </Typography>
-          <Button
-            width="100%"
-            size="large"
-            variant="contained"
-            onClick={() => navigate('/gallery')}
-            sx={(theme) => ({
-              color: theme.palette.common.white,
-              background: theme.palette.primary.main,
-            })}
-          >
-
-            <ArrowBackIosIcon />
-
-            Grįžti į galeriją
-          </Button>
-
+          <BackToGalleryButton />
         </Box>
-
-      </Box>
-
-    </Box>
+      </BackgroundBox>
+    </BackgroundContainer>
   );
 };
 

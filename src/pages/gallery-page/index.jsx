@@ -26,40 +26,38 @@ const GalleryPage = () => {
   }, [handleFetchPaintings]);
 
   return (
-    <Box sx={(theme) => ({ background: theme.palette.primary.main })}>
-      <Box sx={{
-        display: 'flex', gap: { xs: 4, xl: 0 }, py: 3, px: 3,
-      }}
-      >
-        <Filters drawerWidth={drawerWidth} />
-        <Grid container spacing={3} sx={{ pl: { xl: `${drawerWidth}px` } }}>
-          {paintings.map(({
-            id,
-            title,
-            description,
-            img,
-            price,
-            sizeId,
-            liked,
-            size,
-          }) => (
-            <Grid key={id} item xs={12} sm={6} md={4} xl={3}>
-              <GalleryCard
-                id={id}
-                title={title}
-                description={description}
-                img={img}
-                price={price}
-                sizeId={sizeId}
-                liked={liked}
-                size={size}
-                updatePainting={handleUpdatePainting}
-              />
-              {title}
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+    <Box sx={{
+      display: 'flex', gap: { xs: 4, xl: 0 }, py: 3, px: 3,
+    }}
+    >
+      <Filters drawerWidth={drawerWidth} />
+      <Grid container spacing={3} sx={{ pl: { xl: `${drawerWidth}px` } }}>
+        {paintings.map(({
+          id,
+          title,
+          description,
+          img,
+          price,
+          sizeId,
+          liked,
+          size,
+        }) => (
+          <Grid key={id} item xs={12} sm={6} md={4} xl={3}>
+            <GalleryCard
+              id={id}
+              title={title}
+              description={description}
+              img={img}
+              price={price}
+              sizeId={sizeId}
+              liked={liked}
+              size={size}
+              updatePainting={handleUpdatePainting}
+            />
+            {title}
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };

@@ -16,9 +16,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
-import CartContext from '../contexts/cart-context';
-import FavouritesContext from '../contexts/favourites-context';
-import { Image, TypographyLimited } from '../components';
+import CartContext from '../../contexts/cart-context';
+import FavouritesContext from '../../contexts/favourites-context';
+import { Image, TypographyLimited } from '../../components';
 
 const Item = styled(Box)(({ theme }) => ({
 

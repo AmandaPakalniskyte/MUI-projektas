@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useNavigate } from 'react-router-dom';
-import FavouritesContext from '../contexts/favourites-context';
+import FavouritesContext from '../../contexts/favourites-context';
 import FavouriteCard from './favourite-card';
 
 const StyledButton = styled(Button)(() => ({
@@ -46,9 +46,7 @@ const FavouritesPage = () => {
 
   return (
 
-    <Box sx={(theme) => ({
-      height: '100vh',
-      background: theme.palette.primary.main,
+    <Box sx={() => ({
       py: 5,
       px: {
         lg: 10,

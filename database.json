@@ -31,7 +31,7 @@
       "price": 95,
       "sizeId": 3,
       "colorId": 1,
-      "liked": false
+      "liked": true
     },
     {
       "id": "5F7922A2-19DB-CAD4-4291-1B137C44D066",
@@ -42,7 +42,7 @@
       "price": 55,
       "sizeId": 4,
       "colorId": 1,
-      "liked": true
+      "liked": false
     },
     {
       "id": "815C5D64-820D-2DCD-10AA-59EE2D0BC780",
@@ -53,7 +53,7 @@
       "price": 80,
       "sizeId": 1,
       "colorId": 1,
-      "liked": true
+      "liked": false
     },
     {
       "id": "9DB881E2-10C5-C379-E7A3-1C5836853892",
@@ -64,7 +64,7 @@
       "price": 39,
       "sizeId": 2,
       "colorId": 1,
-      "liked": true
+      "liked": false
     },
     {
       "id": "E9522542-AB55-9279-A13C-03645AE88D28",
@@ -75,7 +75,7 @@
       "price": 80,
       "sizeId": 2,
       "colorId": 1,
-      "liked": true
+      "liked": false
     },
     {
       "id": "25D5DF9E-91AA-0358-D7DA-A70C6C448F2A",
@@ -86,7 +86,7 @@
       "price": 72,
       "sizeId": 3,
       "colorId": 2,
-      "liked": true
+      "liked": false
     },
     {
       "id": "F1BB0713-A37A-9766-7896-26BDADC62132",

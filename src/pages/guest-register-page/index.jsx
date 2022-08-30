@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import RegisterFormSection from '../../components/register-form-container';
+import RegisterFormContainer from '../../components/register-form-container';
 import RegisterForm from '../../components/register-form-container/register-form';
 import RadioButtonSection from './radio-button-section';
 import BackToCartButton from '../../components/back-to-cart-button';
@@ -73,7 +73,7 @@ const validationSchema = yup.object({
     .max(8, 'Daugiausiai 8 simboliai'),
 });
 
-const ContactPage = () => {
+const GuestRegisterPage = () => {
   const [consent, setConsent] = React.useState(true);
 
   const onSubmit = (values) => {
@@ -91,14 +91,12 @@ const ContactPage = () => {
   });
 
   return (
-    <RegisterFormSection>
+    <RegisterFormContainer>
       <Box>
         <BackToCartButton />
       </Box>
-
       <RegisterForm>
         <Typography component="h1" variant="h4">Pirkėjo duomenys</Typography>
-
         <TextField
           name="email"
           label="El. paštas"
@@ -200,7 +198,6 @@ const ContactPage = () => {
           />
         </Box>
         <RadioButtonSection />
-
         <Box sx={{ alignSelf: 'flex-start' }}>
           <FormControlLabel
             control={(
@@ -223,12 +220,10 @@ const ContactPage = () => {
           })}
         >
           Pateikti užsakymą
-
         </StyledInsideButton>
       </RegisterForm>
-
-    </RegisterFormSection>
+    </RegisterFormContainer>
   );
 };
 
-export default ContactPage;
+export default GuestRegisterPage;

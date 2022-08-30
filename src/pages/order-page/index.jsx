@@ -3,15 +3,9 @@ import { Box } from '@mui/material';
 import ListSection from './components/list-section';
 
 const OrderPage = () => (
-  <Box sx={(theme) => ({
+  <Box sx={() => ({
     display: 'flex',
-    flexDirection: {
-      xl: 'column',
-      lg: 'column',
-      md: 'column',
-      sm: 'column',
-      xs: 'column',
-    },
+    flexDirection: 'column',
     py: {
       lg: 10,
       md: 10,
@@ -24,8 +18,6 @@ const OrderPage = () => (
       sm: 10,
       xs: 5,
     },
-    height: '100vh',
-    background: theme.palette.primary.main,
   })}
   >
     <ListSection />

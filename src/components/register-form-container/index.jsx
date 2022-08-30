@@ -3,21 +3,13 @@ import {
   Box,
 } from '@mui/material';
 
-const RegisterFormSection = ({ children }) => (
-  <Box sx={(theme) => ({
+const RegisterFormContainer = ({ children }) => (
+  <Box sx={() => ({
     display: 'flex',
     alignItems: 'center',
-    flexDirection: {
-      xl: 'column',
-      lg: 'column',
-      md: 'column',
-      sm: 'column',
-      xs: 'column',
-    },
+    flexDirection: 'column',
     py: 8,
     px: 10,
-    height: '100%',
-    background: theme.palette.primary.main,
   })}
   >
     {children}
@@ -25,4 +17,4 @@ const RegisterFormSection = ({ children }) => (
   </Box>
 );
 
-export default RegisterFormSection;
+export default RegisterFormContainer;

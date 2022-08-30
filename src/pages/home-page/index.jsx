@@ -8,12 +8,9 @@ import TopDescription from './components/top-description';
 import BottomDescription from './components/bottom-description';
 
 const HomePage = () => (
-  <Box sx={(theme) => ({
+  <Box sx={() => ({
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
-    width: '100%',
-    backgroundColor: theme.palette.primary.main,
     py: {
       lg: 10,
       md: 10,

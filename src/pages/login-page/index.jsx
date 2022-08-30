@@ -43,7 +43,7 @@ const LoginPage = () => {
   });
 
   return (
-    <Box sx={(theme) => ({
+    <Box sx={() => ({
       display: 'flex',
       justifyContent: 'center',
       py: {
@@ -55,11 +55,9 @@ const LoginPage = () => {
       px: {
         lg: 10,
         md: 10,
-        sm: 5,
-        xs: 5,
+        sm: 3,
+        xs: 3,
       },
-      height: '100vh',
-      background: theme.palette.primary.main,
     })}
     >
       <Paper sx={{
@@ -68,8 +66,8 @@ const LoginPage = () => {
         width: {
           lg: '500px',
           md: '500px',
-          sm: '500px',
-          xs: '300px',
+          sm: '100%',
+          xs: '100%',
         },
       }}
       >
@@ -79,7 +77,7 @@ const LoginPage = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 5,
+            gap: 3,
           }}
           onSubmit={handleSubmit}
         >

@@ -1,16 +1,11 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
 import DescriptionSection from './description-section';
+import BackgroundContainer from '../../components/background-container';
 
 const ConceptPage = () => (
-  <Box
-    py={8}
-    height="100%"
-    sx={(theme) => ({ background: theme.palette.primary.main })}
-  >
+  <BackgroundContainer>
     <DescriptionSection />
-
-  </Box>
+  </BackgroundContainer>
 );
 
 export default ConceptPage;
