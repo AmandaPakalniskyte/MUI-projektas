@@ -109,7 +109,6 @@ const RegisterPage = () => {
 
   return (
     <RegisterFormContainer>
-
       <RegisterForm>
         <Typography component="h1" variant="h4">Registracija</Typography>
         <TextField

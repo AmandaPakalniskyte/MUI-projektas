@@ -1,21 +1,8 @@
 import * as React from 'react';
-import {
-  Box, Grid, Button, Typography, styled,
-} from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { useNavigate } from 'react-router-dom';
+import { Box, Grid, Typography } from '@mui/material';
 import FavouritesContext from '../../contexts/favourites-context';
 import FavouriteCard from './favourite-card';
-
-const StyledButton = styled(Button)(() => ({
-
-  ':hover': {
-    transform: 'scale(1.2)',
-    backgroundColor: 'white',
-    color: 'black',
-  },
-
-}));
+import BackToGalleryButton from '../../components/back-to-galerry-button';
 
 const fetchItem = async (id) => {
   const response = await fetch(`http://localhost:8000/paintings/${id}?_expand=category&_expand=size&_expand=color`);
@@ -34,7 +21,6 @@ const fetchFavouriteItems = async (favouriteItems) => {
 const FavouritesPage = () => {
   const { favouriteItems: favouriteItemsData } = React.useContext(FavouritesContext);
   const [favouriteItems, setFavouriteItems] = React.useState([]);
-  const navigate = useNavigate();
   console.log(favouriteItems);
   React.useEffect(() => {
     (async () => {
@@ -92,23 +78,7 @@ const FavouritesPage = () => {
 
         </Box>
       )}
-
-      <StyledButton
-        width="100%"
-        size="large"
-        variant="contained"
-        onClick={() => navigate('/gallery')}
-        sx={(theme) => ({
-          backgroundColor: theme.palette.common.white,
-          color: theme.palette.primary.main,
-          mt: 3,
-        })}
-      >
-
-        <ArrowBackIosIcon />
-
-        Grįžti į galeriją
-      </StyledButton>
+      <BackToGalleryButton />
     </Box>
   );
 };

@@ -17,9 +17,7 @@ const BackToGalleryButton = () => {
         background: theme.palette.primary.main,
       })}
     >
-
       <ArrowBackIosIcon />
-
       Grįžti į galeriją
     </Button>
   );
