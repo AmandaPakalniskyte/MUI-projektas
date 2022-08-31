@@ -5,10 +5,10 @@ const BackgroundBox = ({ children }) => (
   <Box sx={(theme) => ({
     height: '100%',
     py: {
-      lg: '40px',
-      md: '40px',
-      sm: '20px',
-      xs: '20px',
+      lg: '60px',
+      md: '60px',
+      sm: '30px',
+      xs: '30px',
     },
     px: {
       lg: '40px',
@@ -29,7 +29,6 @@ const BackgroundBox = ({ children }) => (
   })}
   >
     {children}
-
   </Box>
 );
 

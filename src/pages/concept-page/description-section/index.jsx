@@ -32,7 +32,6 @@ const DescriptionSection = () => (
       variant="h6"
       component="div"
       sx={{
-        mx: 2,
         my: 1,
         fontSize: {
           lg: 20,
@@ -76,7 +75,6 @@ const DescriptionSection = () => (
           variant="h6"
           component="div"
           sx={{
-            mx: 2,
             my: 1,
             fontSize: {
               lg: 20,

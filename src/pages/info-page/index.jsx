@@ -12,54 +12,34 @@ const InfoPage = () => {
   const { id } = useParams();
   const [painting, setPainting] = React.useState(null);
 
-  const fetchPainting = async () => {
+  const fetchPainting = React.useCallback(async () => {
     const response = await fetch(`http://localhost:8000/paintings/${id}`);
     const fetchedPainting = await response.json();
 
     setPainting(fetchedPainting);
-  };
+  }, [id]);
   React.useEffect(() => {
     fetchPainting();
-  });
+  }, [fetchPainting]);
 
   return (
     <BackgroundContainer>
       <BackgroundBox>
-        {/* <Image
-          src={painting?.imgWall}
-          sx={{
-            position: 'relative',
-            top: 0,
-            left: 0,
-            objectFit: 'contain',
-            mb: 2,
-          }}
-        /> */}
-        <Slide position="relative" height="100px">
-          <Box>
-            <Image
-              src={painting?.imgWall}
-              sx={{
-                position: 'relative',
-                top: 0,
-                left: 0,
-                objectFit: 'contain',
-                mb: 2,
-              }}
-            />
-          </Box>
-          <Box>
-            <Image
-              src={painting?.imgWallDark}
-              sx={{
-                position: 'relative',
-                top: 0,
-                left: 0,
-                objectFit: 'contain',
-                mb: 2,
-              }}
-            />
-          </Box>
+        <Slide>
+          {painting && painting.imgWall.map((img) => (
+            <Box key={img}>
+              <Image
+                src={img}
+                sx={{
+                  position: 'relative',
+                  top: 0,
+                  left: 0,
+                  objectFit: 'contain',
+                  mb: 2,
+                }}
+              />
+            </Box>
+          ))}
         </Slide>
         <Typography variant="h6" component="div">
           Autorius:
