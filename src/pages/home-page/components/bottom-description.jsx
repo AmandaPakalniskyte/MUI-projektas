@@ -4,11 +4,10 @@ import { Box, Typography } from '@mui/material';
 const BottomDescription = () => (
 
   <Box
-    color="white"
     position="absolute"
-    zIndex="665"
     sx={(theme) => ({
       backgroundColor: theme.palette.primary.main,
+      color: theme.palette.common.white,
       p: {
         lg: 5,
         md: 5,
@@ -16,10 +15,10 @@ const BottomDescription = () => (
         xs: 4,
       },
       top: {
-        lg: 615,
-        md: 615,
-        sm: 490,
-        xs: 490,
+        lg: 65,
+        md: 65,
+        sm: 35,
+        xs: 35,
       },
       left: {
         lg: '40%',
