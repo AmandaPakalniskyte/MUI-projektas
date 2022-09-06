@@ -21,7 +21,6 @@ const MAX = 95;
 
 const Filters = ({ drawerWidth }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [initialSetupDone, setIntialSetupDone] = React.useState(false);
 
   const isExtraLarge = useMediaQuery((theme) => theme.breakpoints.up('xl'));
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -78,15 +77,15 @@ const Filters = ({ drawerWidth }) => {
     setSelectedColors(newColors);
   };
 
-  // const deleteFilters = () => {
-  //   searchParams.delete('price_gte');
-  //   searchParams.delete('price_lte');
-  //   searchParams.delete('categoryId');
-  //   searchParams.delete('sizeId');
-  //   searchParams.delete('colorId');
+  const deleteFilters = () => {
+    searchParams.delete('price_gte');
+    searchParams.delete('price_lte');
+    searchParams.delete('categoryId');
+    searchParams.delete('sizeId');
+    searchParams.delete('colorId');
 
-  //   setSearchParams(searchParams);
-  // };
+    setSearchParams(searchParams);
+  };
 
   React.useEffect(() => {
     (async () => {
@@ -120,8 +119,6 @@ const Filters = ({ drawerWidth }) => {
       setCategories(fetchedCategories);
       setSizes(fetchedSizes);
       setColors(fetchedColors);
-
-      // setIntialSetupDone(true);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -168,7 +165,6 @@ const Filters = ({ drawerWidth }) => {
           />
 
           <Divider sx={{ my: 2 }} />
-
           <SelectField
             options={categories}
             value={category}
@@ -189,9 +185,11 @@ const Filters = ({ drawerWidth }) => {
             onChange={handleSizeChange}
           />
         </Box>
-        <Button variant="contained" disabled>
-          trinti
-        </Button>
+        <Box width="100%" textAlign="center">
+          <Button variant="contained" onClick={deleteFilters}>
+            PAŠALINTI FILTRUS
+          </Button>
+        </Box>
       </Drawer>
     </>
   );
