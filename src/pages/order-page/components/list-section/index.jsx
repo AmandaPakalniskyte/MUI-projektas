@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import CartContext from '../../../../contexts/cart-context';
-import Item from './components/item';
+import Item from './components/item/item-grid-big-screen';
+import ItemSmall from './components/item/item-grid-small-screen';
 import TotalSection from './components/total-section';
 
 const fetchItem = async ({ id, count }) => {
@@ -66,7 +67,29 @@ const ListSection = () => {
           count,
         }) => (
           <Item
-              // key={id}
+            id={id}
+            img={img}
+            title={title}
+            sizeId={sizeId}
+            size={size}
+            price={price}
+            count={count}
+            setCount={(newCount) => addToCart({ id, count: newCount })}
+            deleteItem={() => deleteItem(id)}
+          />
+        ))}
+      </Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        {cartItems.map(({
+          id,
+          img,
+          title,
+          size,
+          sizeId,
+          price,
+          count,
+        }) => (
+          <ItemSmall
             id={id}
             img={img}
             title={title}
