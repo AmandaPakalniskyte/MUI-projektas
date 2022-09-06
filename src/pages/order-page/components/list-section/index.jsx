@@ -37,59 +37,50 @@ const ListSection = () => {
   console.log(cartItems);
 
   return (
-    <>
-      {/* <Box component="pre" sx={{ mt: 15 }}>{JSON.stringify(cartItems, null, 4)}</Box> */}
-
-      <Box
-        alignSelf="center"
-        sx={() => ({
-          width: {
-            xl: '70%',
-            lg: '100%',
-            md: '100%',
-            sm: '100%',
-            xs: '100%',
-          },
-
-        })}
-      >
-        {cartItems.length > 0 && (
-        <Typography variant="h4" sx={(theme) => ({ color: theme.palette.common.white })}>Jūsų krepšelis</Typography>
-        )}
-        {cartItems.length === 0 && (
+    <Box
+      alignSelf="center"
+      sx={() => ({
+        width: {
+          xl: '70%',
+          lg: '100%',
+          md: '100%',
+          sm: '100%',
+          xs: '100%',
+        },
+      })}
+    >
+      {cartItems.length > 0 && (
+        <Typography variant="h4" sx={(theme) => ({ color: theme.palette.common.white, mb: 2 })}>Jūsų krepšelis</Typography>
+      )}
+      {cartItems.length === 0 && (
         <Typography variant="h4" sx={(theme) => ({ color: theme.palette.common.white })}>Jūsų krepšelis tuščias</Typography>
-        )}
-
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          {cartItems.map(({
-            id,
-            img,
-            title,
-            size,
-            sizeId,
-            price,
-            count,
-          }) => (
-            <Item
+      )}
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        {cartItems.map(({
+          id,
+          img,
+          title,
+          size,
+          sizeId,
+          price,
+          count,
+        }) => (
+          <Item
               // key={id}
-              id={id}
-              img={img}
-              title={title}
-              sizeId={sizeId}
-              size={size}
-              price={price}
-              count={count}
-              setCount={(newCount) => addToCart({ id, count: newCount })}
-              deleteItem={() => deleteItem(id)}
-            />
-          ))}
-
-        </Box>
-        <TotalSection total={total} />
-
+            id={id}
+            img={img}
+            title={title}
+            sizeId={sizeId}
+            size={size}
+            price={price}
+            count={count}
+            setCount={(newCount) => addToCart({ id, count: newCount })}
+            deleteItem={() => deleteItem(id)}
+          />
+        ))}
       </Box>
-
-    </>
+      <TotalSection total={total} />
+    </Box>
   );
 };
 

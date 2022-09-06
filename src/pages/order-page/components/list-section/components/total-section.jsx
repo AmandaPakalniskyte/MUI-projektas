@@ -42,7 +42,21 @@ const TotalSection = ({ total }) => {
         alignItems: 'flex-start',
       }}
       >
-        <BackToGalleryButton />
+        <Box sx={() => ({
+          display: {
+            xl: 'flex',
+            lg: 'flex',
+            md: 'flex',
+            sm: 'none',
+            xs: 'none',
+          },
+        })}
+        >
+          {' '}
+          <BackToGalleryButton />
+
+        </Box>
+
         {total > 0 && (
         <Box sx={{
           display: 'flex',
@@ -72,6 +86,20 @@ const TotalSection = ({ total }) => {
                 {buttonTitle}
               </StyledButton>
             ))}
+            <Box sx={() => ({
+              display: {
+                xl: 'none',
+                lg: 'none',
+                md: 'none',
+                sm: 'flex',
+                xs: 'flex',
+              },
+            })}
+            >
+              {' '}
+              <BackToGalleryButton />
+
+            </Box>
           </Box>
         </Box>
         )}
