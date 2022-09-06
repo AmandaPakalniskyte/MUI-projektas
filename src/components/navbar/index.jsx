@@ -6,6 +6,7 @@ import {
   IconButton,
   Drawer,
   useMediaQuery,
+  CardMedia,
 } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -40,6 +41,31 @@ const Navbar = () => {
 
   return (
     <AppBar elevation={0} position="fixed">
+      <Box
+        position="absolute"
+        sx={{
+          width: {
+            lg: '200px',
+            md: '200px',
+            sm: '200px',
+            xs: '180px',
+          },
+        }}
+        mt={2}
+        ml={3}
+
+      >
+        {' '}
+        <CardMedia
+          width="100%"
+          component="img"
+          image="/logo6.png"
+          alt="green iguana"
+          background="black"
+        />
+
+      </Box>
+
       <Box sx={(theme) => theme.mixins.navbar}>
         <IconButton
           size="large"
